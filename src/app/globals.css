@@ -4,6 +4,29 @@
 
 @layer base {
   :root {
+    --background: 0 0% 100%;
+    --foreground: 252 14% 10%;
+    --card: 0 0% 98%;
+    --card-foreground: 252 14% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 252 14% 10%;
+    --primary: 255 76% 60%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 225 89% 70%;
+    --secondary-foreground: 252 14% 10%;
+    --muted: 252 14% 95%;
+    --muted-foreground: 252 10% 40%;
+    --accent: 225 89% 70%;
+    --accent-foreground: 252 14% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 252 14% 90%;
+    --input: 252 14% 90%;
+    --ring: 255 76% 60%;
+    --radius: 0.75rem;
+  }
+
+  .dark {
     --background: 252 14% 10%;
     --foreground: 0 0% 98%;
     --card: 252 14% 12%;
@@ -23,7 +46,6 @@
     --border: 252 14% 20%;
     --input: 252 14% 20%;
     --ring: 255 76% 60%;
-    --radius: 0.75rem;
   }
 }
 
@@ -32,7 +54,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground overflow-x-hidden;
+    @apply bg-background text-foreground transition-colors duration-300 overflow-x-hidden;
   }
   h1, h2, h3, h4, h5, h6 {
     @apply font-headline;
@@ -41,10 +63,10 @@
 
 @layer components {
   .glass {
-    @apply bg-white/5 backdrop-blur-lg border border-white/10;
+    @apply bg-background/60 backdrop-blur-lg border border-border/10;
   }
   .glass-card {
-    @apply bg-white/5 backdrop-blur-md border border-white/10 hover:border-primary/50 transition-all duration-300;
+    @apply bg-card backdrop-blur-md border border-border/10 hover:border-primary/50 transition-all duration-300;
   }
   .text-gradient {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent;
@@ -53,7 +75,7 @@
     @apply bg-primary text-primary-foreground px-6 py-3 rounded-lg font-medium hover:opacity-90 transition-all active:scale-95 flex items-center justify-center gap-2;
   }
   .btn-outline {
-    @apply border border-white/20 text-white px-6 py-3 rounded-lg font-medium hover:bg-white/10 transition-all active:scale-95 flex items-center justify-center gap-2;
+    @apply border border-border text-foreground px-6 py-3 rounded-lg font-medium hover:bg-muted transition-all active:scale-95 flex items-center justify-center gap-2;
   }
 }
 
