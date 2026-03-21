@@ -2,11 +2,14 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Menu, Sun, Moon } from 'lucide-react';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export function Navbar() {
   const [theme, setTheme] = useState<'light' | 'dark'>('dark');
+  const logo = PlaceHolderImages.find(img => img.id === 'app-logo');
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme') as 'light' | 'dark';
@@ -27,10 +30,20 @@ export function Navbar() {
     <nav className="fixed top-0 left-0 right-0 z-50 glass border-b border-border/5">
       <div className="container mx-auto px-6 h-20 flex items-center justify-between">
         <div className="flex items-center gap-8">
-          <Link href="/" className="flex flex-col items-start">
-            <span className="text-xl font-headline font-bold text-foreground tracking-tight leading-none">شانان سمارات</span>
-            <div className="h-6 w-24 bg-primary/20 rounded border border-primary/30 flex items-center justify-center mt-1">
-              <span className="text-[10px] text-primary font-bold uppercase tracking-widest">LOGO</span>
+          <Link href="/" className="flex items-center gap-3">
+            {logo && (
+              <div className="relative w-12 h-12 rounded-xl overflow-hidden border border-primary/20 bg-background/50">
+                <Image 
+                  src={logo.imageUrl} 
+                  alt="شعار شانان سمارات" 
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            )}
+            <div className="flex flex-col items-start">
+              <span className="text-xl font-headline font-bold text-foreground tracking-tight leading-none">شانان سمارات</span>
+              <span className="text-[10px] text-primary font-bold uppercase tracking-widest mt-1">SHANAN SMART</span>
             </div>
           </Link>
           
