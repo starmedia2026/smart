@@ -10,8 +10,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        body: ['Inter', 'sans-serif'],
-        headline: ['Space Grotesk', 'sans-serif'],
+        body: ['"IBM Plex Sans Arabic"', 'Inter', 'sans-serif'],
+        headline: ['"IBM Plex Sans Arabic"', '"Space Grotesk"', 'sans-serif'],
         code: ['monospace'],
       },
       colors: {
