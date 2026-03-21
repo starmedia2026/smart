@@ -4,13 +4,14 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { Menu, Sun, Moon } from 'lucide-react';
+import { Menu, Sun, Moon, Home, Info, Settings2, LayoutGrid, Handshake, X } from 'lucide-react';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { cn } from '@/lib/utils';
 import {
   Sheet,
   SheetContent,
   SheetTrigger,
+  SheetClose,
 } from "@/components/ui/sheet";
 
 export function Navbar() {
@@ -41,50 +42,23 @@ export function Navbar() {
   };
 
   const menuLinks = [
-    { title: "الرئيسية", href: "/" },
-    { title: "من نحن", href: "#about" },
-    { title: "خدماتنا", href: "#services" },
-    { title: "منتجاتنا", href: "#products" },
-    { title: "شركاؤنا", href: "#partners" },
+    { title: "الرئيسية", href: "/", icon: Home },
+    { title: "من نحن", href: "#about", icon: Info },
+    { title: "خدماتنا", href: "#services", icon: Settings2 },
+    { title: "منتجاتنا", href: "#products", icon: LayoutGrid },
+    { title: "شركاؤنا", href: "#partners", icon: Handshake },
   ];
 
   return (
     <nav className={cn(
-      "fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full border-b",
+      "fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full",
       isScrolled 
-        ? "bg-background/80 backdrop-blur-md shadow-lg py-2 border-white/10" 
-        : "bg-background/40 backdrop-blur-sm py-4 border-transparent"
+        ? "bg-background/80 backdrop-blur-md shadow-lg py-2 border-b border-white/10" 
+        : "bg-background/40 backdrop-blur-sm py-4 border-b border-transparent"
     )}>
       <div className="container mx-auto px-6 flex items-center justify-between">
-        {/* Right Side: Name then Logo (Reversed as requested) */}
-        <Link href="/" className="flex items-center gap-3 group">
-          <div className="flex flex-col items-start text-right">
-            <span className="text-lg md:text-xl font-bold font-headline leading-tight tracking-tight text-foreground">شانان سمارات</span>
-            <span className="text-[10px] font-medium opacity-60 uppercase tracking-widest text-primary">SHANAN SMART</span>
-          </div>
-          {logo && (
-            <div className="relative w-11 h-11 rounded-xl overflow-hidden border border-white/10 bg-white/5 shadow-lg group-hover:scale-105 transition-transform">
-              <Image 
-                src={logo.imageUrl} 
-                alt="Logo" 
-                fill
-                className="object-cover"
-              />
-            </div>
-          )}
-        </Link>
-
-        {/* Left Side: 2 Icons (Theme Toggle & Menu) */}
+        {/* Left Side: Actions */}
         <div className="flex items-center gap-3">
-          <Button 
-            variant="ghost" 
-            size="icon" 
-            onClick={toggleTheme}
-            className="w-11 h-11 rounded-xl hover:bg-primary/10 text-foreground transition-colors"
-          >
-            {theme === 'dark' ? <Moon className="w-5 h-5" /> : <Sun className="w-5 h-5" />}
-          </Button>
-          
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
               <Button 
@@ -95,31 +69,58 @@ export function Navbar() {
                 <Menu className="w-6 h-6" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="left" className="w-[180px] glass border-r border-white/10 p-0 flex flex-col">
-              {/* Minimalist Menu Body */}
-              <div className="flex-1 flex flex-col justify-center p-2 gap-1">
+            <SheetContent side="left" className="w-full sm:max-w-sm bg-black/40 backdrop-blur-xl border-none p-0 flex flex-col justify-center shadow-none">
+              <SheetClose className="absolute top-8 right-8 w-12 h-12 rounded-full bg-white flex items-center justify-center text-black shadow-lg hover:scale-110 transition-transform">
+                <X className="w-6 h-6" />
+              </SheetClose>
+
+              <div className="flex flex-col gap-8 px-12 items-end">
                 {menuLinks.map((link, idx) => (
                   <Link 
                     key={idx} 
                     href={link.href} 
                     onClick={() => setIsOpen(false)}
-                    className="flex items-center justify-center py-5 text-sm font-medium text-foreground hover:text-primary transition-all group relative"
+                    className="flex items-center gap-6 group transition-all"
                   >
-                    <span className="font-headline tracking-wide z-10">{link.title}</span>
-                    <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity rounded-lg mx-2" />
-                    <div className="absolute bottom-3 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-primary scale-0 group-hover:scale-100 transition-transform" />
+                    <span className="text-2xl font-bold text-white group-hover:text-primary transition-colors font-headline">
+                      {link.title}
+                    </span>
+                    <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform border-4 border-white/20">
+                      <link.icon className="w-8 h-8 text-primary" />
+                    </div>
                   </Link>
                 ))}
               </div>
-              
-              {/* Ultra Minimal Footer */}
-              <div className="p-4 text-center">
-                <div className="w-8 h-px bg-white/10 mx-auto mb-4" />
-                <span className="text-[8px] text-muted-foreground font-medium uppercase tracking-[0.2em]">S.S 2026</span>
-              </div>
             </SheetContent>
           </Sheet>
+
+          <Button 
+            variant="ghost" 
+            size="icon" 
+            onClick={toggleTheme}
+            className="w-11 h-11 rounded-xl hover:bg-primary/10 text-foreground transition-colors"
+          >
+            {theme === 'dark' ? <Moon className="w-5 h-5" /> : <Sun className="w-5 h-5" />}
+          </Button>
         </div>
+
+        {/* Right Side: Logo & Name */}
+        <Link href="/" className="flex items-center gap-4 group">
+          <div className="flex flex-col items-end text-right">
+            <span className="text-xl md:text-2xl font-bold font-headline leading-tight tracking-tight text-foreground">شانان سمارات</span>
+            <span className="text-[10px] font-medium opacity-60 uppercase tracking-widest text-primary">SHANAN SMART</span>
+          </div>
+          {logo && (
+            <div className="relative w-12 h-12 rounded-2xl overflow-hidden border border-white/10 bg-white/5 shadow-xl group-hover:scale-105 transition-transform">
+              <Image 
+                src={logo.imageUrl} 
+                alt="Logo" 
+                fill
+                className="object-cover"
+              />
+            </div>
+          )}
+        </Link>
       </div>
     </nav>
   );
