@@ -40,9 +40,10 @@ export function Navbar() {
       isScrolled ? "top-2" : "top-4"
     )}>
       <div className={cn(
-        "container mx-auto max-w-6xl rounded-[2rem] transition-all duration-500",
-        "glass border-white/10 shadow-2xl py-3 px-6 flex items-center justify-between",
-        theme === 'light' ? "bg-white/40 border-black/5" : "bg-background/40"
+        "container mx-auto max-w-6xl rounded-[2rem] transition-all duration-500 shadow-2xl py-3 px-6 flex items-center justify-between border",
+        theme === 'light' 
+          ? "bg-white/80 border-black/10 backdrop-blur-xl shadow-black/5" 
+          : "bg-background/40 border-white/10 backdrop-blur-lg"
       )}>
         {/* Left Side: Actions */}
         <div className="flex items-center gap-2">
