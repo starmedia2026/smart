@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { Menu, Sun, Moon, Languages } from 'lucide-react';
+import { Menu, Sun, Moon } from 'lucide-react';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export function Navbar() {
@@ -37,14 +37,6 @@ export function Navbar() {
             className="w-12 h-12 rounded-2xl glass border-white/10 hover:bg-white/10 text-white"
           >
             <Menu className="w-6 h-6" />
-          </Button>
-
-          <Button 
-            variant="ghost" 
-            className="h-12 px-4 rounded-2xl glass border-white/10 hover:bg-white/10 text-white flex items-center gap-2 font-medium"
-          >
-            <span className="text-sm">EN</span>
-            <Languages className="w-4 h-4" />
           </Button>
 
           <Button 
