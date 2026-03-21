@@ -8,11 +8,12 @@ import { Menu, Sun, Moon, Home, Info, Settings2, LayoutGrid, Handshake, X } from
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { cn } from '@/lib/utils';
 import {
-  Sheet,
-  SheetContent,
-  SheetTrigger,
-  SheetClose,
-} from "@/components/ui/sheet";
+  Dialog,
+  DialogContent,
+  DialogTrigger,
+  DialogClose,
+  DialogTitle,
+} from "@/components/ui/dialog";
 
 export function Navbar() {
   const [theme, setTheme] = useState<'light' | 'dark'>('dark');
@@ -59,8 +60,8 @@ export function Navbar() {
       <div className="container mx-auto px-6 flex items-center justify-between">
         {/* Left Side: Actions */}
         <div className="flex items-center gap-3">
-          <Sheet open={isOpen} onOpenChange={setIsOpen}>
-            <SheetTrigger asChild>
+          <Dialog open={isOpen} onOpenChange={setIsOpen}>
+            <DialogTrigger asChild>
               <Button 
                 variant="ghost" 
                 size="icon" 
@@ -68,31 +69,35 @@ export function Navbar() {
               >
                 <Menu className="w-6 h-6" />
               </Button>
-            </SheetTrigger>
-            <SheetContent side="left" className="w-full sm:max-w-sm bg-black/40 backdrop-blur-xl border-none p-0 flex flex-col justify-center shadow-none">
-              <SheetClose className="absolute top-8 right-8 w-12 h-12 rounded-full bg-white flex items-center justify-center text-black shadow-lg hover:scale-110 transition-transform">
+            </DialogTrigger>
+            <DialogContent className="w-[90%] max-w-[320px] bg-black/70 backdrop-blur-3xl border border-white/10 rounded-[3rem] p-10 flex flex-col items-center justify-center shadow-[0_0_50px_-12px_rgba(0,0,0,0.5)] animate-in zoom-in-95 duration-300 outline-none">
+              <div className="sr-only">
+                <DialogTitle>القائمة الرئيسية</DialogTitle>
+              </div>
+              
+              <DialogClose className="absolute -top-4 -left-4 w-12 h-12 rounded-full bg-white flex items-center justify-center text-black shadow-2xl hover:scale-110 transition-transform z-50">
                 <X className="w-6 h-6" />
-              </SheetClose>
+              </DialogClose>
 
-              <div className="flex flex-col gap-8 px-12 items-end">
+              <div className="flex flex-col gap-6 w-full">
                 {menuLinks.map((link, idx) => (
                   <Link 
                     key={idx} 
                     href={link.href} 
                     onClick={() => setIsOpen(false)}
-                    className="flex items-center gap-6 group transition-all"
+                    className="flex items-center gap-5 group transition-all w-full justify-end"
                   >
-                    <span className="text-2xl font-bold text-white group-hover:text-primary transition-colors font-headline">
+                    <span className="text-xl font-bold text-white group-hover:text-primary transition-colors font-headline">
                       {link.title}
                     </span>
-                    <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform border-4 border-white/20">
-                      <link.icon className="w-8 h-8 text-primary" />
+                    <div className="w-14 h-14 rounded-full bg-white flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform border-4 border-white/20 shrink-0">
+                      <link.icon className="w-6 h-6 text-primary" />
                     </div>
                   </Link>
                 ))}
               </div>
-            </SheetContent>
-          </Sheet>
+            </DialogContent>
+          </Dialog>
 
           <Button 
             variant="ghost" 
@@ -106,12 +111,8 @@ export function Navbar() {
 
         {/* Right Side: Logo & Name */}
         <Link href="/" className="flex items-center gap-4 group">
-          <div className="flex flex-col items-end text-right">
-            <span className="text-xl md:text-2xl font-bold font-headline leading-tight tracking-tight text-foreground">شانان سمارات</span>
-            <span className="text-[10px] font-medium opacity-60 uppercase tracking-widest text-primary">SHANAN SMART</span>
-          </div>
           {logo && (
-            <div className="relative w-12 h-12 rounded-2xl overflow-hidden border border-white/10 bg-white/5 shadow-xl group-hover:scale-105 transition-transform">
+            <div className="relative w-12 h-12 rounded-2xl overflow-hidden border border-white/10 bg-white/5 shadow-xl group-hover:scale-105 transition-transform order-last">
               <Image 
                 src={logo.imageUrl} 
                 alt="Logo" 
@@ -120,6 +121,10 @@ export function Navbar() {
               />
             </div>
           )}
+          <div className="flex flex-col items-end text-right">
+            <span className="text-xl md:text-2xl font-bold font-headline leading-tight tracking-tight text-foreground">شانان سمارات</span>
+            <span className="text-[10px] font-medium opacity-60 uppercase tracking-widest text-primary">SHANAN SMART</span>
+          </div>
         </Link>
       </div>
     </nav>
