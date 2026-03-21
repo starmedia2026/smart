@@ -56,7 +56,7 @@ export function Navbar() {
         : "bg-background/40 backdrop-blur-sm py-4 border-transparent"
     )}>
       <div className="container mx-auto px-6 flex items-center justify-between">
-        {/* Right Side: Logo & Name */}
+        {/* Right Side: Name then Logo (Reversed as requested) */}
         <Link href="/" className="flex items-center gap-3 group">
           <div className="flex flex-col items-start text-right">
             <span className="text-lg md:text-xl font-bold font-headline leading-tight tracking-tight text-foreground">شانان سمارات</span>
@@ -74,7 +74,7 @@ export function Navbar() {
           )}
         </Link>
 
-        {/* Left Side: Actions */}
+        {/* Left Side: 2 Icons (Theme Toggle & Menu) */}
         <div className="flex items-center gap-3">
           <Button 
             variant="ghost" 
@@ -95,23 +95,27 @@ export function Navbar() {
                 <Menu className="w-6 h-6" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="left" className="w-[220px] glass border-r border-white/10 p-0 overflow-hidden flex flex-col">
-              <div className="flex-1 flex flex-col justify-center p-4 gap-1">
+            <SheetContent side="left" className="w-[180px] glass border-r border-white/10 p-0 flex flex-col">
+              {/* Minimalist Menu Body */}
+              <div className="flex-1 flex flex-col justify-center p-2 gap-1">
                 {menuLinks.map((link, idx) => (
                   <Link 
                     key={idx} 
                     href={link.href} 
                     onClick={() => setIsOpen(false)}
-                    className="flex items-center justify-between px-6 py-4 rounded-xl text-base font-medium text-foreground hover:bg-primary/10 hover:text-primary transition-all group"
+                    className="flex items-center justify-center py-5 text-sm font-medium text-foreground hover:text-primary transition-all group relative"
                   >
-                    <span className="font-headline">{link.title}</span>
-                    <div className="w-1 h-1 rounded-full bg-primary opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <span className="font-headline tracking-wide z-10">{link.title}</span>
+                    <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity rounded-lg mx-2" />
+                    <div className="absolute bottom-3 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-primary scale-0 group-hover:scale-100 transition-transform" />
                   </Link>
                 ))}
               </div>
-
-              <div className="p-6 border-t border-white/5 bg-primary/5 text-center">
-                <p className="text-[8px] text-muted-foreground font-medium uppercase tracking-widest">شانان سمارات 2026</p>
+              
+              {/* Ultra Minimal Footer */}
+              <div className="p-4 text-center">
+                <div className="w-8 h-px bg-white/10 mx-auto mb-4" />
+                <span className="text-[8px] text-muted-foreground font-medium uppercase tracking-[0.2em]">S.S 2026</span>
               </div>
             </SheetContent>
           </Sheet>
