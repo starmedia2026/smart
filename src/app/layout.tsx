@@ -2,7 +2,7 @@ import type {Metadata} from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'نمو للبرمجيات | NomowSoft',
+  title: 'شانان سمارات | SHANAN SMART',
   description: 'شريكك التقني في رحلة التحول الرقمي - حلول برمجية مبتكرة',
 };
 

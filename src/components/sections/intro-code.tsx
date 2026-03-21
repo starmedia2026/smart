@@ -8,7 +8,7 @@ export function IntroCode() {
           <div>
             <h2 className="text-4xl font-bold font-headline mb-6">بوابتك إلى المستقبل الرقمي</h2>
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              نحن نؤمن بأن الكود البرمجي هو اللغة التي تشكل مستقبلنا. في نمو للبرمجيات، نستخدم أحدث التقنيات لنبني جسوراً بين تطلعاتك والواقع الرقمي الملموس.
+              نحن نؤمن بأن الكود البرمجي هو اللغة التي تشكل مستقبلنا. في شانان سمارات، نستخدم أحدث التقنيات لنبني جسوراً بين تطلعاتك والواقع الرقمي الملموس.
             </p>
             <div className="flex items-center gap-4 text-primary font-medium">
               <Code2 className="w-6 h-6" />

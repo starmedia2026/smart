@@ -43,7 +43,7 @@ export function FeaturedProduct() {
 
             <div className="relative">
               <div className="aspect-video bg-gradient-to-br from-primary/30 to-accent/30 rounded-2xl border border-white/10 flex items-center justify-center overflow-hidden">
-                <div className="text-white/20 font-headline font-bold text-8xl rotate-12">NOMOW</div>
+                <div className="text-white/20 font-headline font-bold text-6xl md:text-8xl rotate-12">SHANAN</div>
                 <div className="absolute inset-0 flex items-center justify-center">
                    <div className="w-2/3 h-2/3 glass rounded-xl shadow-2xl animate-pulse"></div>
                 </div>
