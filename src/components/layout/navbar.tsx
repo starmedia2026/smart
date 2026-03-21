@@ -42,8 +42,12 @@ export function Navbar() {
         : "bg-background/40 backdrop-blur-sm py-4 border-transparent"
     )}>
       <div className="container mx-auto px-6 flex items-center justify-between">
-        {/* Right Side: Logo & Name (Reversed order as requested) */}
+        {/* Right Side: Logo & Name (Swapped order for "العكس" - Text Right, Logo Left in RTL) */}
         <Link href="/" className="flex items-center gap-3 group">
+          <div className="flex flex-col items-start">
+            <span className="text-lg md:text-xl font-bold font-headline leading-tight tracking-tight text-foreground">شانان سمارات</span>
+            <span className="text-[10px] font-medium opacity-60 uppercase tracking-widest text-primary">SHANAN SMART</span>
+          </div>
           {logo && (
             <div className="relative w-11 h-11 rounded-xl overflow-hidden border border-white/10 bg-white/5 shadow-lg group-hover:scale-105 transition-transform">
               <Image 
@@ -54,10 +58,6 @@ export function Navbar() {
               />
             </div>
           )}
-          <div className="flex flex-col items-start">
-            <span className="text-lg md:text-xl font-bold font-headline leading-tight tracking-tight text-foreground">شانان سمارات</span>
-            <span className="text-[10px] font-medium opacity-60 uppercase tracking-widest text-primary">SHANAN SMART</span>
-          </div>
         </Link>
 
         {/* Left Side: 2 Action Icons */}

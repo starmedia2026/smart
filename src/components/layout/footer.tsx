@@ -74,7 +74,7 @@ export function Footer() {
 
         <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-6">
           <p className="text-muted-foreground text-sm flex items-center gap-2">
-            صنع بكل <Heart className="w-4 h-4 text-red-500 fill-red-500" /> بواسطة فريق شانان سمارات © 2025
+            صنع بكل <Heart className="w-4 h-4 text-red-500 fill-red-500" /> بواسطة فريق شانان سمارات © 2026
           </p>
           <div className="flex items-center gap-6">
             {/* Social icons could go here */}
