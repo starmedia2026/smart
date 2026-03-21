@@ -85,14 +85,14 @@ export function Navbar() {
                     key={idx} 
                     href={link.href} 
                     onClick={() => setIsOpen(false)}
-                    className="flex items-center gap-5 group transition-all w-full justify-end"
+                    className="flex items-center gap-5 group transition-all w-full justify-start"
                   >
-                    <span className="text-xl font-bold text-white group-hover:text-primary transition-colors font-headline">
-                      {link.title}
-                    </span>
                     <div className="w-14 h-14 rounded-full bg-white flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform border-4 border-white/20 shrink-0">
                       <link.icon className="w-6 h-6 text-primary" />
                     </div>
+                    <span className="text-xl font-bold text-white group-hover:text-primary transition-colors font-headline">
+                      {link.title}
+                    </span>
                   </Link>
                 ))}
               </div>
@@ -109,10 +109,10 @@ export function Navbar() {
           </Button>
         </div>
 
-        {/* Right Side: Logo & Name */}
+        {/* Right Side: Logo & Name (Logo first on the right in RTL) */}
         <Link href="/" className="flex items-center gap-4 group">
           {logo && (
-            <div className="relative w-12 h-12 rounded-2xl overflow-hidden border border-white/10 bg-white/5 shadow-xl group-hover:scale-105 transition-transform order-last">
+            <div className="relative w-12 h-12 rounded-2xl overflow-hidden border border-white/10 bg-white/5 shadow-xl group-hover:scale-105 transition-transform">
               <Image 
                 src={logo.imageUrl} 
                 alt="Logo" 
@@ -121,7 +121,7 @@ export function Navbar() {
               />
             </div>
           )}
-          <div className="flex flex-col items-end text-right">
+          <div className="flex flex-col items-start text-left">
             <span className="text-xl md:text-2xl font-bold font-headline leading-tight tracking-tight text-foreground">شانان سمارات</span>
             <span className="text-[10px] font-medium opacity-60 uppercase tracking-widest text-primary">SHANAN SMART</span>
           </div>
