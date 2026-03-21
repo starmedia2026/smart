@@ -10,8 +10,6 @@ import { cn } from '@/lib/utils';
 import {
   Sheet,
   SheetContent,
-  SheetHeader,
-  SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
 
@@ -60,7 +58,7 @@ export function Navbar() {
       <div className="container mx-auto px-6 flex items-center justify-between">
         {/* Right Side: Logo & Name */}
         <Link href="/" className="flex items-center gap-3 group">
-          <div className="flex flex-col items-start">
+          <div className="flex flex-col items-start text-right">
             <span className="text-lg md:text-xl font-bold font-headline leading-tight tracking-tight text-foreground">شانان سمارات</span>
             <span className="text-[10px] font-medium opacity-60 uppercase tracking-widest text-primary">SHANAN SMART</span>
           </div>
@@ -97,30 +95,23 @@ export function Navbar() {
                 <Menu className="w-6 h-6" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="left" className="w-[280px] glass border-r border-white/10 p-0 overflow-hidden">
-              <div className="h-full flex flex-col">
-                <SheetHeader className="p-8 text-right border-b border-white/5 bg-primary/5">
-                  <SheetTitle className="text-xl font-bold font-headline text-primary tracking-tight">التنقل</SheetTitle>
-                </SheetHeader>
-                
-                <nav className="flex-1 flex flex-col p-6 gap-2">
-                  {menuLinks.map((link, idx) => (
-                    <Link 
-                      key={idx} 
-                      href={link.href} 
-                      onClick={() => setIsOpen(false)}
-                      className="flex items-center justify-between p-4 rounded-2xl text-lg font-medium text-foreground hover:bg-primary/10 hover:text-primary transition-all group"
-                    >
-                      <span className="font-headline">{link.title}</span>
-                      <div className="w-1.5 h-1.5 rounded-full bg-primary opacity-0 group-hover:opacity-100 transition-opacity" />
-                    </Link>
-                  ))}
-                </nav>
+            <SheetContent side="left" className="w-[220px] glass border-r border-white/10 p-0 overflow-hidden flex flex-col">
+              <div className="flex-1 flex flex-col justify-center p-4 gap-1">
+                {menuLinks.map((link, idx) => (
+                  <Link 
+                    key={idx} 
+                    href={link.href} 
+                    onClick={() => setIsOpen(false)}
+                    className="flex items-center justify-between px-6 py-4 rounded-xl text-base font-medium text-foreground hover:bg-primary/10 hover:text-primary transition-all group"
+                  >
+                    <span className="font-headline">{link.title}</span>
+                    <div className="w-1 h-1 rounded-full bg-primary opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </Link>
+                ))}
+              </div>
 
-                <div className="p-8 border-t border-white/5 bg-primary/5 text-center">
-                  <p className="text-[10px] text-muted-foreground font-medium uppercase tracking-widest mb-2">شانان سمارات</p>
-                  <p className="text-[10px] text-muted-foreground/60">© 2026 جميع الحقوق محفوظة</p>
-                </div>
+              <div className="p-6 border-t border-white/5 bg-primary/5 text-center">
+                <p className="text-[8px] text-muted-foreground font-medium uppercase tracking-widest">شانان سمارات 2026</p>
               </div>
             </SheetContent>
           </Sheet>
