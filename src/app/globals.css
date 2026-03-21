@@ -27,24 +27,25 @@
   }
 
   .dark {
-    --background: 252 14% 10%;
+    /* بنفسجي داكن جداً كخلفية أساسية */
+    --background: 260 45% 4%;
     --foreground: 0 0% 98%;
-    --card: 252 14% 12%;
+    --card: 260 40% 7%;
     --card-foreground: 0 0% 98%;
-    --popover: 252 14% 10%;
+    --popover: 260 45% 4%;
     --popover-foreground: 0 0% 98%;
     --primary: 255 76% 60%;
     --primary-foreground: 0 0% 100%;
     --secondary: 225 89% 70%;
-    --secondary-foreground: 252 14% 10%;
-    --muted: 252 14% 16%;
-    --muted-foreground: 252 10% 70%;
+    --secondary-foreground: 260 45% 4%;
+    --muted: 260 30% 12%;
+    --muted-foreground: 260 10% 70%;
     --accent: 225 89% 70%;
-    --accent-foreground: 252 14% 10%;
+    --accent-foreground: 260 45% 4%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 252 14% 20%;
-    --input: 252 14% 20%;
+    --border: 260 30% 15%;
+    --input: 260 30% 15%;
     --ring: 255 76% 60%;
   }
 }
@@ -54,8 +55,17 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground transition-colors duration-300 overflow-x-hidden;
+    @apply antialiased transition-colors duration-300 overflow-x-hidden;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
   }
+  
+  /* تدرج لوني جميل للخلفية في الوضع الليلي */
+  .dark body {
+    background-image: radial-gradient(circle at 50% -20%, hsl(260 45% 12%), hsl(260 45% 4%));
+    background-attachment: fixed;
+  }
+
   h1, h2, h3, h4, h5, h6 {
     @apply font-headline;
   }
@@ -63,10 +73,10 @@
 
 @layer components {
   .glass {
-    @apply bg-background/60 backdrop-blur-lg border border-border/10;
+    @apply bg-background/60 backdrop-blur-lg border border-white/5;
   }
   .glass-card {
-    @apply bg-card backdrop-blur-md border border-border/10 hover:border-primary/50 transition-all duration-300;
+    @apply bg-card/40 backdrop-blur-md border border-white/5 hover:border-primary/50 transition-all duration-300;
   }
   .text-gradient {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent;

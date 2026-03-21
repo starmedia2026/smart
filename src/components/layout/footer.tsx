@@ -3,12 +3,15 @@ import { Mail, Phone, MapPin, Heart } from 'lucide-react';
 
 export function Footer() {
   return (
-    <footer className="bg-black pt-20 pb-10 border-t border-white/5">
-      <div className="container mx-auto px-6">
+    <footer className="bg-background pt-20 pb-10 border-t border-white/5 relative overflow-hidden">
+      {/* Subtle glow effect for footer */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent"></div>
+      
+      <div className="container mx-auto px-6 relative z-10">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           <div>
             <Link href="/" className="flex flex-col items-start mb-6">
-              <span className="text-2xl font-headline font-bold text-white tracking-tight">نمو للبرمجيات</span>
+              <span className="text-2xl font-headline font-bold text-foreground tracking-tight">نمو للبرمجيات</span>
               <span className="text-xs text-primary font-medium tracking-widest uppercase mt-1">NOMOW SOFT</span>
             </Link>
             <p className="text-muted-foreground leading-relaxed mb-6">
@@ -17,7 +20,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="text-white font-bold mb-6">روابط سريعة</h4>
+            <h4 className="text-foreground font-bold mb-6">روابط سريعة</h4>
             <ul className="space-y-4">
               <li><Link href="/" className="text-muted-foreground hover:text-primary transition-colors">الرئيسية</Link></li>
               <li><Link href="#about" className="text-muted-foreground hover:text-primary transition-colors">من نحن</Link></li>
@@ -27,7 +30,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="text-white font-bold mb-6">تواصل معنا</h4>
+            <h4 className="text-foreground font-bold mb-6">تواصل معنا</h4>
             <ul className="space-y-4">
               <li className="flex items-center gap-3 text-muted-foreground group">
                 <Mail className="w-5 h-5 group-hover:text-primary transition-colors" />
@@ -45,7 +48,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="text-white font-bold mb-6">قانوني</h4>
+            <h4 className="text-foreground font-bold mb-6">قانوني</h4>
             <ul className="space-y-4">
               <li><Link href="#" className="text-muted-foreground hover:text-primary transition-colors">سياسة الخصوصية</Link></li>
               <li><Link href="#" className="text-muted-foreground hover:text-primary transition-colors">الشروط والأحكام</Link></li>
