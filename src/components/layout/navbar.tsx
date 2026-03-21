@@ -4,14 +4,13 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { Menu, Sun, Moon, Home, Info, Settings2, LayoutGrid, Handshake, X } from 'lucide-react';
+import { Menu, Sun, Moon, Home, Info, Settings2, LayoutGrid, Handshake } from 'lucide-react';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { cn } from '@/lib/utils';
 import {
   Dialog,
   DialogContent,
   DialogTrigger,
-  DialogClose,
   DialogTitle,
 } from "@/components/ui/dialog";
 
@@ -75,24 +74,20 @@ export function Navbar() {
                 <DialogTitle>القائمة الرئيسية</DialogTitle>
               </div>
               
-              <DialogClose className="absolute -top-4 -left-4 w-12 h-12 rounded-full bg-white flex items-center justify-center text-black shadow-2xl hover:scale-110 transition-transform z-50">
-                <X className="w-6 h-6" />
-              </DialogClose>
-
               <div className="flex flex-col gap-6 w-full">
                 {menuLinks.map((link, idx) => (
                   <Link 
                     key={idx} 
                     href={link.href} 
                     onClick={() => setIsOpen(false)}
-                    className="flex items-center gap-5 group transition-all w-full justify-start"
+                    className="flex items-center gap-5 group transition-all w-full justify-between"
                   >
-                    <div className="w-14 h-14 rounded-full bg-white flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform border-4 border-white/20 shrink-0">
-                      <link.icon className="w-6 h-6 text-primary" />
-                    </div>
                     <span className="text-xl font-bold text-white group-hover:text-primary transition-colors font-headline">
                       {link.title}
                     </span>
+                    <div className="w-14 h-14 rounded-full bg-white flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform border-4 border-white/20 shrink-0">
+                      <link.icon className="w-6 h-6 text-primary" />
+                    </div>
                   </Link>
                 ))}
               </div>
@@ -109,8 +104,12 @@ export function Navbar() {
           </Button>
         </div>
 
-        {/* Right Side: Logo & Name (Logo first on the right in RTL) */}
+        {/* Right Side: Reversed Name & Logo (Text first on right, then Logo) */}
         <Link href="/" className="flex items-center gap-4 group">
+          <div className="flex flex-col items-end text-right">
+            <span className="text-xl md:text-2xl font-bold font-headline leading-tight tracking-tight text-foreground">شانان سمارات</span>
+            <span className="text-[10px] font-medium opacity-60 uppercase tracking-widest text-primary">SHANAN SMART</span>
+          </div>
           {logo && (
             <div className="relative w-12 h-12 rounded-2xl overflow-hidden border border-white/10 bg-white/5 shadow-xl group-hover:scale-105 transition-transform">
               <Image 
@@ -121,10 +120,6 @@ export function Navbar() {
               />
             </div>
           )}
-          <div className="flex flex-col items-start text-left">
-            <span className="text-xl md:text-2xl font-bold font-headline leading-tight tracking-tight text-foreground">شانان سمارات</span>
-            <span className="text-[10px] font-medium opacity-60 uppercase tracking-widest text-primary">SHANAN SMART</span>
-          </div>
         </Link>
       </div>
     </nav>
