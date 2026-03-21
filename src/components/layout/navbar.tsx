@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { Menu, Sun, Moon, X } from 'lucide-react';
+import { Menu, Sun, Moon } from 'lucide-react';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { cn } from '@/lib/utils';
 import {
@@ -58,7 +58,7 @@ export function Navbar() {
         : "bg-background/40 backdrop-blur-sm py-4 border-transparent"
     )}>
       <div className="container mx-auto px-6 flex items-center justify-between">
-        {/* Right Side: Logo & Name (Text Right, Logo Left in RTL) */}
+        {/* Right Side: Logo & Name */}
         <Link href="/" className="flex items-center gap-3 group">
           <div className="flex flex-col items-start">
             <span className="text-lg md:text-xl font-bold font-headline leading-tight tracking-tight text-foreground">شانان سمارات</span>
@@ -76,7 +76,7 @@ export function Navbar() {
           )}
         </Link>
 
-        {/* Left Side: 2 Action Icons */}
+        {/* Left Side: Actions */}
         <div className="flex items-center gap-3">
           <Button 
             variant="ghost" 
@@ -97,22 +97,31 @@ export function Navbar() {
                 <Menu className="w-6 h-6" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="left" className="w-[300px] sm:w-[400px] glass border-white/10 pt-16">
-              <SheetHeader className="text-right mb-12">
-                <SheetTitle className="text-3xl font-bold font-headline text-primary border-b border-primary/20 pb-4">القائمة</SheetTitle>
-              </SheetHeader>
-              <nav className="flex flex-col gap-8 text-right">
-                {menuLinks.map((link, idx) => (
-                  <Link 
-                    key={idx} 
-                    href={link.href} 
-                    onClick={() => setIsOpen(false)}
-                    className="text-2xl font-bold font-headline text-foreground hover:text-primary transition-all hover:translate-x-[-10px]"
-                  >
-                    {link.title}
-                  </Link>
-                ))}
-              </nav>
+            <SheetContent side="left" className="w-[280px] glass border-r border-white/10 p-0 overflow-hidden">
+              <div className="h-full flex flex-col">
+                <SheetHeader className="p-8 text-right border-b border-white/5 bg-primary/5">
+                  <SheetTitle className="text-xl font-bold font-headline text-primary tracking-tight">التنقل</SheetTitle>
+                </SheetHeader>
+                
+                <nav className="flex-1 flex flex-col p-6 gap-2">
+                  {menuLinks.map((link, idx) => (
+                    <Link 
+                      key={idx} 
+                      href={link.href} 
+                      onClick={() => setIsOpen(false)}
+                      className="flex items-center justify-between p-4 rounded-2xl text-lg font-medium text-foreground hover:bg-primary/10 hover:text-primary transition-all group"
+                    >
+                      <span className="font-headline">{link.title}</span>
+                      <div className="w-1.5 h-1.5 rounded-full bg-primary opacity-0 group-hover:opacity-100 transition-opacity" />
+                    </Link>
+                  ))}
+                </nav>
+
+                <div className="p-8 border-t border-white/5 bg-primary/5 text-center">
+                  <p className="text-[10px] text-muted-foreground font-medium uppercase tracking-widest mb-2">شانان سمارات</p>
+                  <p className="text-[10px] text-muted-foreground/60">© 2026 جميع الحقوق محفوظة</p>
+                </div>
+              </div>
             </SheetContent>
           </Sheet>
         </div>
