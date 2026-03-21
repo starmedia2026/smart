@@ -52,7 +52,7 @@ export function Services() {
     <section id="services" className="py-24 bg-white/[0.01]">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold font-headline mb-4">خدماتنا المتميزة</h2>
+          <h2 className="text-4xl font-bold font-headline mb-4 text-foreground">خدماتنا المتميزة</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">نقدم مجموعة متكاملة من الحلول التقنية المصممة خصيصاً لتناسب احتياجات نمو أعمالك.</p>
         </div>
 
@@ -62,13 +62,13 @@ export function Services() {
               <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
                 <service.icon className="w-8 h-8 text-primary" />
               </div>
-              <h3 className="text-2xl font-bold mb-4">{service.title}</h3>
+              <h3 className="text-2xl font-bold mb-4 text-foreground">{service.title}</h3>
               <p className="text-muted-foreground mb-6 leading-relaxed">
                 {service.desc}
               </p>
               <ul className="space-y-2 mb-8">
                 {service.points.map((point, pIdx) => (
-                  <li key={pIdx} className="flex items-center gap-2 text-sm text-white/70">
+                  <li key={pIdx} className="flex items-center gap-2 text-sm text-muted-foreground">
                     <div className="w-1.5 h-1.5 rounded-full bg-primary"></div>
                     {point}
                   </li>

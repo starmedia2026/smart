@@ -26,7 +26,7 @@ export function Hero() {
               <Rocket className="w-6 h-6" />
             </div>
             <div className="flex flex-col text-right">
-              <span className="text-xl font-bold">99%</span>
+              <span className="text-xl font-bold text-foreground">99%</span>
               <span className="text-[10px] text-muted-foreground font-medium">أداء فائق الاستجابة</span>
             </div>
           </div>
@@ -52,7 +52,7 @@ export function Hero() {
               )}
             </div>
 
-            <h3 className="text-2xl font-bold mb-2">شانان سمارات</h3>
+            <h3 className="text-2xl font-bold mb-2 text-foreground">شانان سمارات</h3>
             <p className="text-sm text-muted-foreground text-center">بوابتك إلى المستقبل الرقمي</p>
 
             <div className="absolute bottom-6 right-6 w-8 h-8 rounded-lg bg-green-500/10 flex items-center justify-center text-green-500">
@@ -68,9 +68,9 @@ export function Hero() {
               <div className="w-2.5 h-2.5 rounded-full bg-green-500/50" />
             </div>
             <pre className="font-mono text-[10px] leading-relaxed">
-              <code className="text-primary">const</code> <code className="text-white">solution</code> = () ={` > {`}
+              <code className="text-primary">const</code> <code className="text-foreground">solution</code> = () ={` > {`}
               <br />
-              &nbsp;&nbsp;growth: <code className="text-green-400">true</code>,
+              &nbsp;&nbsp;growth: <code className="text-green-500">true</code>,
               <br />
               &nbsp;&nbsp;innovation: <code className="text-accent">"unlimited"</code>
               <br />
@@ -86,7 +86,7 @@ export function Hero() {
             <span>شريكك التقني في رحلة التحول الرقمي</span>
           </div>
 
-          <h1 className="text-5xl md:text-8xl font-bold leading-tight mb-8 font-headline tracking-tight text-white">
+          <h1 className="text-5xl md:text-8xl font-bold leading-tight mb-8 font-headline tracking-tight text-foreground">
             نصمم <br />
             <span className="text-gradient">الحلول الذكية</span> <br />
             لتمكين أعمالك
@@ -97,7 +97,7 @@ export function Hero() {
               ابدأ رحلتك الآن
               <ArrowLeft className="w-6 h-6 mr-3" />
             </Button>
-            <Button variant="outline" className="btn-outline px-10 py-8 text-xl rounded-3xl border-white/10 glass shadow-xl hover:bg-white/10">
+            <Button variant="outline" className="btn-outline px-10 py-8 text-xl rounded-3xl border-white/10 glass shadow-xl hover:bg-muted">
               استكشف أعمالنا
             </Button>
           </div>

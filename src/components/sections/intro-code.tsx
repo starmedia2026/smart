@@ -6,7 +6,7 @@ export function IntroCode() {
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="text-4xl font-bold font-headline mb-6">بوابتك إلى المستقبل الرقمي</h2>
+            <h2 className="text-4xl font-bold font-headline mb-6 text-foreground">بوابتك إلى المستقبل الرقمي</h2>
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
               نحن نؤمن بأن الكود البرمجي هو اللغة التي تشكل مستقبلنا. في شانان سمارات، نستخدم أحدث التقنيات لنبني جسوراً بين تطلعاتك والواقع الرقمي الملموس.
             </p>
@@ -23,7 +23,7 @@ export function IntroCode() {
               <div className="w-3 h-3 rounded-full bg-yellow-500/50"></div>
               <div className="w-3 h-3 rounded-full bg-green-500/50"></div>
             </div>
-            <pre className="text-white/90">
+            <pre className="text-foreground">
               <code>{`const solution = () => {
   return {
     growth: true,
