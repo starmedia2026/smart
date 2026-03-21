@@ -2,8 +2,12 @@
 
 import { ArrowLeft, Rocket, Sparkles, Code2, ShieldCheck, Laptop } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import Image from 'next/image';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export function Hero() {
+  const logo = PlaceHolderImages.find(img => img.id === 'app-logo');
+
   return (
     <section className="relative pt-44 pb-32 overflow-hidden flex flex-col items-center">
       {/* Background Effects */}
@@ -35,8 +39,17 @@ export function Hero() {
               <Laptop className="w-5 h-5" />
             </div>
 
-            <div className="w-24 h-24 rounded-[2rem] bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-lg shadow-primary/20 mb-6 group-hover:scale-110 transition-transform duration-500">
-              <Code2 className="w-12 h-12 text-white" />
+            <div className="w-24 h-24 rounded-[2rem] bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-lg shadow-primary/20 mb-6 group-hover:scale-110 transition-transform duration-500 overflow-hidden relative">
+              {logo ? (
+                <Image 
+                  src={logo.imageUrl} 
+                  alt="Logo" 
+                  fill
+                  className="object-cover"
+                />
+              ) : (
+                <Code2 className="w-12 h-12 text-white" />
+              )}
             </div>
 
             <h3 className="text-2xl font-bold mb-2">شانان سمارات</h3>
@@ -69,7 +82,7 @@ export function Hero() {
         {/* Hero Content */}
         <div className="text-center max-w-4xl animate-slide-up">
           <div className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full glass border-white/10 text-primary font-medium text-sm mb-12">
-            <Sparkles className="w-4 h-4" />
+            <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
             <span>شريكك التقني في رحلة التحول الرقمي</span>
           </div>
 
