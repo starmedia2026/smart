@@ -2,7 +2,7 @@ import type {Metadata} from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'شانان سمارات | SHANAN SMART',
+  title: 'شانان سمارت | SHANAN SMART',
   description: 'شريكك التقني في رحلة التحول الرقمي - حلول برمجية مبتكرة',
 };
 

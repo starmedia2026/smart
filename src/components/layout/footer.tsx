@@ -26,7 +26,7 @@ export function Footer() {
                 </div>
               )}
               <div className="flex flex-col items-start">
-                <span className="text-2xl font-headline font-bold text-foreground tracking-tight">شانان سمارات</span>
+                <span className="text-2xl font-headline font-bold text-foreground tracking-tight">شانان سمارت</span>
                 <span className="text-xs text-primary font-medium tracking-widest uppercase mt-1">SHANAN SMART</span>
               </div>
             </Link>
@@ -74,7 +74,7 @@ export function Footer() {
 
         <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-6">
           <p className="text-muted-foreground text-sm flex items-center gap-2">
-            صنع بكل <Heart className="w-4 h-4 text-red-500 fill-red-500" /> بواسطة فريق شانان سمارات © 2026
+            صنع بكل <Heart className="w-4 h-4 text-red-500 fill-red-500" /> بواسطة فريق شانان سمارت © 2026
           </p>
           <div className="flex items-center gap-6">
             {/* Social icons could go here */}

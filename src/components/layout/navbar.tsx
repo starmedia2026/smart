@@ -104,10 +104,10 @@ export function Navbar() {
           </Button>
         </div>
 
-        {/* Right Side: Reversed Name & Logo (Text first on right, then Logo) */}
+        {/* Right Side: Name & Logo */}
         <Link href="/" className="flex items-center gap-4 group">
           <div className="flex flex-col items-end text-right">
-            <span className="text-xl md:text-2xl font-bold font-headline leading-tight tracking-tight text-foreground">شانان سمارات</span>
+            <span className="text-xl md:text-2xl font-bold font-headline leading-tight tracking-tight text-foreground">شانان سمارت</span>
             <span className="text-[10px] font-medium opacity-60 uppercase tracking-widest text-primary">SHANAN SMART</span>
           </div>
           {logo && (

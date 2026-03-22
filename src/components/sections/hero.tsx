@@ -20,8 +20,8 @@ export function Hero() {
       <div className="container mx-auto px-6 relative z-10 flex flex-col items-center">
         {/* Floating Badges and Central Card Area */}
         <div className="relative w-full max-w-lg mb-16 flex flex-col items-center">
-          {/* Top Badge: 99% Performance - Moved left from -right-12 to -right-4 */}
-          <div className="absolute -top-12 -right-4 z-20 glass-card p-4 rounded-3xl border-white/10 flex items-center gap-3 shadow-2xl animate-bounce-slow">
+          {/* Top Badge: 99% Performance */}
+          <div className="absolute -top-12 -left-4 z-20 glass-card p-4 rounded-3xl border-white/10 flex items-center gap-3 shadow-2xl animate-bounce-slow">
             <div className="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center text-primary">
               <Rocket className="w-6 h-6" />
             </div>
@@ -52,7 +52,7 @@ export function Hero() {
               )}
             </div>
 
-            <h3 className="text-2xl font-bold mb-2 text-foreground">شانان سمارات</h3>
+            <h3 className="text-2xl font-bold mb-2 text-foreground">شانان سمارت</h3>
             <p className="text-sm text-muted-foreground text-center">بوابتك إلى المستقبل الرقمي</p>
 
             <div className="absolute bottom-6 right-6 w-8 h-8 rounded-lg bg-green-500/10 flex items-center justify-center text-green-500">
