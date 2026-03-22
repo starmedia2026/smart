@@ -53,12 +53,39 @@ export function Navbar() {
     <nav className={cn(
       "fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full",
       isScrolled 
-        ? "bg-background/80 backdrop-blur-md shadow-lg py-2 border-b border-white/10" 
-        : "bg-background/40 backdrop-blur-sm py-4 border-b border-transparent"
+        ? "bg-background/80 dark:bg-background/80 backdrop-blur-md shadow-lg py-2 border-b border-white/10" 
+        : "bg-background/40 dark:bg-background/40 backdrop-blur-sm py-4 border-b border-transparent"
     )}>
       <div className="container mx-auto px-6 flex items-center justify-between">
-        {/* Left Side: Actions */}
+        {/* Right Side: Name & Logo (First in DOM for RTL) */}
+        <Link href="/" className="flex items-center gap-4 group">
+          {logo && (
+            <div className="relative w-12 h-12 rounded-2xl overflow-hidden border border-white/10 bg-white/5 shadow-xl group-hover:scale-105 transition-transform">
+              <Image 
+                src={logo.imageUrl} 
+                alt="Logo" 
+                fill
+                className="object-cover"
+              />
+            </div>
+          )}
+          <div className="flex flex-col items-start text-left">
+            <span className="text-xl md:text-2xl font-bold font-headline leading-tight tracking-tight text-foreground">شانان سمارت</span>
+            <span className="text-[10px] font-medium opacity-60 uppercase tracking-widest text-primary">SHANAN SMART</span>
+          </div>
+        </Link>
+
+        {/* Left Side: Actions (Second in DOM for RTL) */}
         <div className="flex items-center gap-3">
+          <Button 
+            variant="ghost" 
+            size="icon" 
+            onClick={toggleTheme}
+            className="w-11 h-11 rounded-xl hover:bg-primary/10 text-foreground transition-colors"
+          >
+            {theme === 'dark' ? <Moon className="w-5 h-5" /> : <Sun className="w-5 h-5" />}
+          </Button>
+
           <Dialog open={isOpen} onOpenChange={setIsOpen}>
             <DialogTrigger asChild>
               <Button 
@@ -69,7 +96,7 @@ export function Navbar() {
                 <Menu className="w-6 h-6" />
               </Button>
             </DialogTrigger>
-            <DialogContent className="w-[90%] max-w-[320px] bg-black/70 backdrop-blur-3xl border border-white/10 rounded-[3rem] p-10 flex flex-col items-center justify-center shadow-[0_0_50px_-12px_rgba(0,0,0,0.5)] animate-in zoom-in-95 duration-300 outline-none">
+            <DialogContent className="fixed left-[50%] top-[50%] z-50 translate-x-[-50%] translate-y-[-50%] w-[90%] max-w-[320px] bg-black/70 backdrop-blur-3xl border border-white/10 rounded-[3rem] p-10 flex flex-col items-center justify-center shadow-[0_0_50px_-12px_rgba(0,0,0,0.5)] animate-in zoom-in-95 duration-300 outline-none">
               <div className="sr-only">
                 <DialogTitle>القائمة الرئيسية</DialogTitle>
               </div>
@@ -93,34 +120,7 @@ export function Navbar() {
               </div>
             </DialogContent>
           </Dialog>
-
-          <Button 
-            variant="ghost" 
-            size="icon" 
-            onClick={toggleTheme}
-            className="w-11 h-11 rounded-xl hover:bg-primary/10 text-foreground transition-colors"
-          >
-            {theme === 'dark' ? <Moon className="w-5 h-5" /> : <Sun className="w-5 h-5" />}
-          </Button>
         </div>
-
-        {/* Right Side: Name & Logo */}
-        <Link href="/" className="flex items-center gap-4 group">
-          <div className="flex flex-col items-end text-right">
-            <span className="text-xl md:text-2xl font-bold font-headline leading-tight tracking-tight text-foreground">شانان سمارت</span>
-            <span className="text-[10px] font-medium opacity-60 uppercase tracking-widest text-primary">SHANAN SMART</span>
-          </div>
-          {logo && (
-            <div className="relative w-12 h-12 rounded-2xl overflow-hidden border border-white/10 bg-white/5 shadow-xl group-hover:scale-105 transition-transform">
-              <Image 
-                src={logo.imageUrl} 
-                alt="Logo" 
-                fill
-                className="object-cover"
-              />
-            </div>
-          )}
-        </Link>
       </div>
     </nav>
   );

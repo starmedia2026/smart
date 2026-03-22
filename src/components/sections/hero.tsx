@@ -22,12 +22,12 @@ export function Hero() {
         <div className="relative w-full max-w-lg mb-16 flex flex-col items-center">
           {/* Top Badge: 99% Performance - Moved to right and reversed content */}
           <div className="absolute -top-12 -right-4 z-20 glass-card p-4 rounded-3xl border-white/10 flex items-center gap-3 shadow-2xl animate-bounce-slow">
+            <div className="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center text-primary">
+              <Rocket className="w-6 h-6" />
+            </div>
             <div className="flex flex-col text-right">
               <span className="text-xl font-bold text-foreground">99%</span>
               <span className="text-[10px] text-muted-foreground font-medium">أداء فائق الاستجابة</span>
-            </div>
-            <div className="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center text-primary">
-              <Rocket className="w-6 h-6" />
             </div>
           </div>
 
