@@ -38,7 +38,7 @@ const nextConfig: NextConfig = {
     ],
   },
   // إعداد النطاقات المسموح بها لحل تحذيرات Cross-origin في بيئة Firebase Studio
-  dev: {
+  experimental: {
     allowedDevOrigins: [
       '6000-firebase-studio-1774113165011.cluster-utvmpwb6ojhlcsay7va6s7qkck.cloudworkstations.dev',
       '9000-firebase-studio-1774113165011.cluster-utvmpwb6ojhlcsay7va6s7qkck.cloudworkstations.dev',
