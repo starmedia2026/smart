@@ -20,7 +20,7 @@ export function Hero() {
       <div className="container mx-auto px-6 relative z-10 flex flex-col items-center">
         {/* Floating Badges and Central Card Area */}
         <div className="relative w-full max-w-lg mb-16 flex flex-col items-center">
-          {/* Top Badge: 99% Performance - Moved to right and reversed content */}
+          {/* Top Badge: 99% Performance - Positioned to the right */}
           <div className="absolute -top-12 -right-4 z-20 glass-card p-4 rounded-3xl border-white/10 flex items-center gap-3 shadow-2xl animate-bounce-slow">
             <div className="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center text-primary">
               <Rocket className="w-6 h-6" />
@@ -60,7 +60,7 @@ export function Hero() {
             </div>
           </div>
 
-          {/* Code Snippet Card (Bottom Left) */}
+          {/* Code Snippet Card (Bottom Left) - Tilted more to the left */}
           <div className="absolute -bottom-8 -left-12 z-20 glass-card p-6 rounded-3xl border-white/10 shadow-2xl w-64 hidden md:block animate-float">
             <div className="flex gap-1.5 mb-4">
               <div className="w-2.5 h-2.5 rounded-full bg-red-500/50" />
@@ -110,8 +110,8 @@ export function Hero() {
           50% { transform: translateY(-15px); }
         }
         @keyframes float {
-          0%, 100% { transform: translateY(0) rotate(-2deg); }
-          50% { transform: translateY(-10px) rotate(0deg); }
+          0%, 100% { transform: translateY(0) rotate(-8deg); }
+          50% { transform: translateY(-10px) rotate(-4deg); }
         }
         .animate-bounce-slow {
           animation: bounce-slow 4s ease-in-out infinite;
