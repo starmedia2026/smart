@@ -2,7 +2,10 @@ import type {NextConfig} from 'next';
 
 const nextConfig: NextConfig = {
   /* config options here */
-  devIndicators: false,
+  devIndicators: {
+    appIsrStatus: false,
+    buildActivity: false,
+  },
   typescript: {
     ignoreBuildErrors: true,
   },
@@ -35,13 +38,6 @@ const nextConfig: NextConfig = {
         port: '',
         pathname: '/**',
       },
-    ],
-  },
-  // إعداد النطاقات المسموح بها لحل تحذيرات Cross-origin في بيئة Firebase Studio
-  experimental: {
-    allowedDevOrigins: [
-      '6000-firebase-studio-1774113165011.cluster-utvmpwb6ojhlcsay7va6s7qkck.cloudworkstations.dev',
-      '9000-firebase-studio-1774113165011.cluster-utvmpwb6ojhlcsay7va6s7qkck.cloudworkstations.dev',
     ],
   },
 };
