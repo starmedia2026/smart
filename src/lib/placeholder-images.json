@@ -1,3 +1,10 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "app-logo",
+      "description": "شعار شانان سمارت الرسمي",
+      "imageUrl": "https://i.postimg.cc/t41FxxDT/IMG-20260318-WA0005(1).jpg",
+      "imageHint": "logo brand"
+    }
+  ]
 }
