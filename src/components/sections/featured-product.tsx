@@ -1,7 +1,11 @@
 import { Settings2, Layers, ShieldCheck, DollarSign, FileText, ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import Image from 'next/image';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export function FeaturedProduct() {
+  const logo = PlaceHolderImages.find(img => img.id === 'app-logo');
+  
   const features = [
     { name: "BoM - شجرة المواد", icon: Layers },
     { name: "جدولة الإنتاج", icon: Settings2 },
@@ -45,7 +49,17 @@ export function FeaturedProduct() {
               <div className="aspect-video bg-gradient-to-br from-primary/30 to-accent/30 rounded-2xl border border-white/10 flex items-center justify-center overflow-hidden">
                 <div className="text-white/20 font-headline font-bold text-6xl md:text-8xl rotate-12">SHANAN</div>
                 <div className="absolute inset-0 flex items-center justify-center">
-                   <div className="w-2/3 h-2/3 glass rounded-xl shadow-2xl animate-pulse"></div>
+                   {logo && (
+                     <div className="relative w-[85%] h-[85%] rounded-2xl overflow-hidden shadow-2xl border border-white/20">
+                       <Image 
+                         src={logo.imageUrl} 
+                         alt="نظام التصنيع" 
+                         fill
+                         className="object-cover"
+                         data-ai-hint="industrial software"
+                       />
+                     </div>
+                   )}
                 </div>
               </div>
               <div className="absolute -bottom-6 -right-6 glass p-6 rounded-2xl border border-white/20 shadow-xl hidden md:block">
