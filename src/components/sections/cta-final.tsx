@@ -13,9 +13,16 @@ export function CTAFinal() {
             <p className="text-xl text-white/90 mb-10 max-w-2xl mx-auto leading-relaxed">
               فريقنا من الخبراء جاهز لمناقشة أفكارك وتحويلها إلى واقع رقمي مبهر يخدم أهدافك.
             </p>
-            <Button className="bg-white text-primary px-10 py-7 text-xl rounded-2xl font-bold hover:bg-white/90 transition-all flex items-center gap-3 mx-auto shadow-2xl active:scale-95">
-              تواصل مع مستشارنا
-              <MessageSquare className="w-6 h-6" />
+            <Button asChild className="bg-white text-primary px-10 py-7 text-xl rounded-2xl font-bold hover:bg-white/90 transition-all flex items-center gap-3 mx-auto shadow-2xl active:scale-95 border-none">
+              <a 
+                href="https://wa.me/967770326828" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-3"
+              >
+                تواصل معنا عبر الواتساب
+                <MessageSquare className="w-6 h-6" />
+              </a>
             </Button>
           </div>
         </div>
