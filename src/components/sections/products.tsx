@@ -1,4 +1,4 @@
-import { Building2, Gavel, Users, BarChart3, Factory, Truck, MessageCircle } from 'lucide-react';
+import { Building2, Gavel, Users, BarChart3, Factory, Truck } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export function Products() {
@@ -36,10 +36,9 @@ export function Products() {
               href="https://wa.me/967770326828" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="flex items-center gap-3"
+              className="flex items-center justify-center"
             >
               اطلب نسخة تجريبية
-              <MessageCircle className="w-6 h-6 group-hover:scale-110 transition-transform" />
             </a>
           </Button>
         </div>
