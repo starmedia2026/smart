@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { Menu, Sun, Moon, Home, Info, Settings2, LayoutGrid, Handshake } from 'lucide-react';
+import { Menu, Sun, Moon, Home, Info, Settings2, LayoutGrid } from 'lucide-react';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { cn } from '@/lib/utils';
 import {
@@ -46,7 +46,6 @@ export function Navbar() {
     { title: "من نحن", href: "#about", icon: Info },
     { title: "خدماتنا", href: "#services", icon: Settings2 },
     { title: "منتجاتنا", href: "#products", icon: LayoutGrid },
-    { title: "شركاؤنا", href: "#partners", icon: Handshake },
   ];
 
   return (
@@ -107,14 +106,14 @@ export function Navbar() {
                     key={idx} 
                     href={link.href} 
                     onClick={() => setIsOpen(false)}
-                    className="flex items-center gap-5 group transition-all w-full justify-between"
+                    className="flex items-center gap-5 group transition-all w-full"
                   >
-                    <span className="text-xl font-bold text-white group-hover:text-primary transition-colors font-headline">
-                      {link.title}
-                    </span>
                     <div className="w-14 h-14 rounded-full bg-white flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform border-4 border-white/20 shrink-0">
                       <link.icon className="w-6 h-6 text-primary" />
                     </div>
+                    <span className="text-xl font-bold text-white group-hover:text-primary transition-colors font-headline">
+                      {link.title}
+                    </span>
                   </Link>
                 ))}
               </div>
