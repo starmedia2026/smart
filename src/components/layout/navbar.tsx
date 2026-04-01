@@ -77,14 +77,15 @@ export function Navbar() {
         </Link>
 
         {/* Center: Desktop Navigation Links (Visible only on Desktop) */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-10">
           {menuLinks.map((link, idx) => (
             <Link 
               key={idx} 
               href={link.href}
-              className="text-sm font-bold text-foreground/80 hover:text-primary transition-colors font-headline"
+              className="text-[1.05rem] font-bold text-foreground/80 hover:text-primary transition-all font-headline relative group py-1"
             >
               {link.title}
+              <span className="absolute -bottom-1 right-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
             </Link>
           ))}
         </div>
