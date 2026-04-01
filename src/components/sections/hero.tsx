@@ -19,27 +19,27 @@ export function Hero() {
 
       <div className="container mx-auto px-6 relative z-10 flex flex-col items-center">
         {/* Floating Badges and Central Card Area */}
-        <div className="relative w-full max-w-xl mb-16 flex flex-col items-center">
-          {/* Top Badge: 99% Performance - Positioned to the right */}
-          <div className="absolute -top-16 -right-8 z-20 glass-card p-6 rounded-[2rem] border-white/10 flex items-center gap-4 shadow-2xl animate-bounce-slow">
-            <div className="w-12 h-12 rounded-2xl bg-primary/20 flex items-center justify-center text-primary">
-              <Rocket className="w-7 h-7" />
+        <div className="relative w-full max-w-2xl mb-24 flex flex-col items-center">
+          {/* Top Badge: 99% Performance */}
+          <div className="absolute -top-20 -right-12 z-20 glass-card p-8 rounded-[2.5rem] border-white/10 flex items-center gap-5 shadow-2xl animate-bounce-slow">
+            <div className="w-14 h-14 rounded-2xl bg-primary/20 flex items-center justify-center text-primary">
+              <Rocket className="w-8 h-8" />
             </div>
             <div className="flex flex-col text-right">
-              <span className="text-2xl font-bold text-foreground">99%</span>
-              <span className="text-xs text-muted-foreground font-medium">أداء فائق الاستجابة</span>
+              <span className="text-3xl font-bold text-foreground">99%</span>
+              <span className="text-sm text-muted-foreground font-medium">أداء فائق الاستجابة</span>
             </div>
           </div>
 
-          {/* Central Layered Card */}
-          <div className="relative w-80 h-[24rem] glass-card rounded-[4rem] border-white/10 flex flex-col items-center justify-center p-10 overflow-hidden shadow-2xl group">
+          {/* Central Layered Card - Enlarged */}
+          <div className="relative w-96 h-[28rem] glass-card rounded-[5rem] border-white/10 flex flex-col items-center justify-center p-12 overflow-hidden shadow-2xl group">
             <div className="absolute inset-0 bg-gradient-to-b from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             
-            <div className="absolute top-8 left-8 w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center text-primary">
-              <Laptop className="w-6 h-6" />
+            <div className="absolute top-10 left-10 w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center text-primary">
+              <Laptop className="w-8 h-8" />
             </div>
 
-            <div className="w-32 h-32 rounded-[2.5rem] bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-lg shadow-primary/20 mb-8 group-hover:scale-110 transition-transform duration-500 overflow-hidden relative">
+            <div className="w-40 h-40 rounded-[3.5rem] bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-lg shadow-primary/20 mb-10 group-hover:scale-110 transition-transform duration-500 overflow-hidden relative">
               {logo ? (
                 <Image 
                   src={logo.imageUrl} 
@@ -48,31 +48,33 @@ export function Hero() {
                   className="object-cover"
                 />
               ) : (
-                <Code2 className="w-16 h-16 text-white" />
+                <Code2 className="w-20 h-20 text-white" />
               )}
             </div>
 
-            <h3 className="text-3xl font-bold mb-3 text-foreground">شانان سمارت</h3>
-            <p className="text-base text-muted-foreground text-center">بوابتك إلى المستقبل الرقمي</p>
+            <h3 className="text-4xl font-bold mb-4 text-foreground text-center">شانان سمارت</h3>
+            <p className="text-lg text-muted-foreground text-center">بوابتك إلى المستقبل الرقمي</p>
 
-            <div className="absolute bottom-8 right-8 w-10 h-10 rounded-xl bg-green-500/10 flex items-center justify-center text-green-500">
-              <ShieldCheck className="w-5 h-5" />
+            <div className="absolute bottom-10 right-10 w-14 h-14 rounded-2xl bg-green-500/10 flex items-center justify-center text-green-500">
+              <ShieldCheck className="w-7 h-7" />
             </div>
           </div>
 
-          {/* Code Snippet Card (Bottom Left) - Tilted more to the left */}
-          <div className="absolute -bottom-12 -left-20 z-20 glass-card p-8 rounded-[2.5rem] border-white/10 shadow-2xl w-80 hidden md:block animate-float">
-            <div className="flex gap-2 mb-5">
-              <div className="w-3 h-3 rounded-full bg-red-500/50" />
-              <div className="w-3 h-3 rounded-full bg-yellow-500/50" />
-              <div className="w-3 h-3 rounded-full bg-green-500/50" />
+          {/* Code Snippet Card (Bottom Left) - Enlarged, tilted more, and moved further away */}
+          <div className="absolute -bottom-16 -left-64 z-20 glass-card p-10 rounded-[3rem] border-white/10 shadow-2xl w-[26rem] hidden lg:block animate-float">
+            <div className="flex gap-2.5 mb-6">
+              <div className="w-4 h-4 rounded-full bg-red-500/50" />
+              <div className="w-4 h-4 rounded-full bg-yellow-500/50" />
+              <div className="w-4 h-4 rounded-full bg-green-500/50" />
             </div>
-            <pre className="font-mono text-xs leading-relaxed">
+            <pre className="font-mono text-sm leading-relaxed">
               <code className="text-primary">const</code> <code className="text-foreground">solution</code> = () ={` > {`}
               <br />
               &nbsp;&nbsp;growth: <code className="text-green-500">true</code>,
               <br />
-              &nbsp;&nbsp;innovation: <code className="text-accent">"unlimited"</code>
+              &nbsp;&nbsp;innovation: <code className="text-accent">"unlimited"</code>,
+              <br />
+              &nbsp;&nbsp;success: <code className="text-primary">"guaranteed"</code>
               <br />
               {`};`}
             </pre>
@@ -110,8 +112,8 @@ export function Hero() {
           50% { transform: translateY(-15px); }
         }
         @keyframes float {
-          0%, 100% { transform: translateY(0) rotate(-12deg); }
-          50% { transform: translateY(-15px) rotate(-6deg); }
+          0%, 100% { transform: translateY(0) rotate(-22deg); }
+          50% { transform: translateY(-25px) rotate(-16deg); }
         }
         .animate-bounce-slow {
           animation: bounce-slow 4s ease-in-out infinite;
