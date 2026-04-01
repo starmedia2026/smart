@@ -76,7 +76,7 @@ export function Navbar() {
           </div>
         </Link>
 
-        {/* Center: Desktop Navigation Links (Visible only on Desktop) */}
+        {/* Center: Desktop Navigation Links */}
         <div className="hidden md:flex items-center gap-10">
           {menuLinks.map((link, idx) => (
             <Link 
@@ -113,23 +113,23 @@ export function Navbar() {
                   <Menu className="w-7 h-7" />
                 </Button>
               </DialogTrigger>
-              <DialogContent className="fixed left-[50%] top-[50%] z-50 translate-x-[-50%] translate-y-[-50%] w-[95%] max-w-[380px] bg-black/80 backdrop-blur-3xl border border-white/10 rounded-[3rem] p-12 flex flex-col items-center justify-center shadow-[0_0_80px_-20px_rgba(0,0,0,0.8)] animate-in zoom-in-95 duration-300 outline-none">
+              <DialogContent className="fixed left-[50%] top-[50%] z-50 translate-x-[-50%] translate-y-[-50%] w-[90%] max-w-[320px] bg-black/90 backdrop-blur-3xl border border-white/10 rounded-[2.5rem] p-8 flex flex-col items-center justify-center shadow-[0_0_80px_-20px_rgba(0,0,0,0.8)] animate-in zoom-in-95 duration-300 outline-none">
                 <div className="sr-only">
                   <DialogTitle>القائمة الرئيسية</DialogTitle>
                 </div>
                 
-                <div className="flex flex-col gap-8 w-full">
+                <div className="flex flex-col gap-6 w-full">
                   {menuLinks.map((link, idx) => (
                     <Link 
                       key={idx} 
                       href={link.href} 
                       onClick={() => setIsOpen(false)}
-                      className="flex items-center gap-6 group transition-all w-full"
+                      className="flex items-center gap-5 group transition-all w-full"
                     >
-                      <div className="w-16 h-16 rounded-[1.5rem] bg-white flex items-center justify-center shadow-2xl group-hover:scale-110 group-hover:rotate-6 transition-all border-4 border-white/20 shrink-0">
-                        <link.icon className="w-7 h-7 text-primary" />
+                      <div className="w-12 h-12 rounded-[1rem] bg-white flex items-center justify-center shadow-xl group-hover:scale-110 group-hover:rotate-6 transition-all border-2 border-white/20 shrink-0">
+                        <link.icon className="w-5 h-5 text-primary" />
                       </div>
-                      <span className="text-2xl font-bold text-white group-hover:text-primary transition-colors font-headline">
+                      <span className="text-xl font-bold text-white group-hover:text-primary transition-colors font-headline">
                         {link.title}
                       </span>
                     </Link>
@@ -140,9 +140,9 @@ export function Navbar() {
                   variant="ghost" 
                   size="icon" 
                   onClick={() => setIsOpen(false)}
-                  className="mt-12 w-14 h-14 rounded-full bg-white/5 hover:bg-red-500/20 text-white hover:text-red-500 transition-all"
+                  className="mt-8 w-12 h-12 rounded-full bg-white/5 hover:bg-red-500/20 text-white hover:text-red-500 transition-all"
                 >
-                  <X className="w-6 h-6" />
+                  <X className="w-5 h-5" />
                 </Button>
               </DialogContent>
             </Dialog>
