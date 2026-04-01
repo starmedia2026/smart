@@ -60,14 +60,14 @@ export function Hero() {
             </div>
           </div>
 
-          {/* Code Snippet Card (Bottom Left) - Enlarged, tilted more, and moved further away */}
-          <div className="absolute -bottom-16 -left-64 z-20 glass-card p-10 rounded-[3rem] border-white/10 shadow-2xl w-[26rem] hidden lg:block animate-float">
-            <div className="flex gap-2.5 mb-6">
-              <div className="w-4 h-4 rounded-full bg-red-500/50" />
-              <div className="w-4 h-4 rounded-full bg-yellow-500/50" />
-              <div className="w-4 h-4 rounded-full bg-green-500/50" />
+          {/* Code Snippet Card (Bottom Left) - Reduced Size */}
+          <div className="absolute -bottom-8 -left-48 z-20 glass-card p-6 rounded-3xl border-white/10 shadow-2xl w-80 hidden lg:block animate-float">
+            <div className="flex gap-2 mb-4">
+              <div className="w-3 h-3 rounded-full bg-red-500/50" />
+              <div className="w-3 h-3 rounded-full bg-yellow-500/50" />
+              <div className="w-3 h-3 rounded-full bg-green-500/50" />
             </div>
-            <pre className="font-mono text-sm leading-relaxed">
+            <pre className="font-mono text-xs leading-relaxed">
               <code className="text-primary">const</code> <code className="text-foreground">solution</code> = () ={` > {`}
               <br />
               &nbsp;&nbsp;growth: <code className="text-green-500">true</code>,
