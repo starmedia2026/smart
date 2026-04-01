@@ -50,7 +50,7 @@ export function Footer() {
             <ul className="space-y-4">
               <li className="flex items-center gap-3 text-muted-foreground group">
                 <Mail className="w-5 h-5 group-hover:text-primary transition-colors" />
-                <a href="mailto:Info@shanan-smart.com">Info@shanan-smart.com</a>
+                <a href="mailto:shanansmart1@gmail.com">shanansmart1@gmail.com</a>
               </li>
               <li className="flex items-center gap-3 text-muted-foreground group">
                 <Phone className="w-5 h-5 group-hover:text-primary transition-colors" />
