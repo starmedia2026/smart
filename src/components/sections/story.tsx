@@ -38,7 +38,7 @@ export function Story() {
               <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
               قصتنا ورؤيتنا
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold font-headline mb-8 leading-tight">
+            <h2 className="text-4xl md:text-5xl font-bold font-headline mb-8 leading-relaxed">
               نحن لا نطور برمجيات فحسب، بل نصنع <span className="text-gradient">مستقبلاً رقمياً</span>
             </h2>
             <p className="text-xl text-muted-foreground leading-relaxed mb-8">
