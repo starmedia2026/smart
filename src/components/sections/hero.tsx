@@ -19,27 +19,27 @@ export function Hero() {
 
       <div className="container mx-auto px-6 relative z-10 flex flex-col items-center">
         {/* Floating Badges and Central Card Area */}
-        <div className="relative w-full max-w-lg mb-16 flex flex-col items-center">
+        <div className="relative w-full max-w-xl mb-16 flex flex-col items-center">
           {/* Top Badge: 99% Performance - Positioned to the right */}
-          <div className="absolute -top-12 -right-4 z-20 glass-card p-4 rounded-3xl border-white/10 flex items-center gap-3 shadow-2xl animate-bounce-slow">
-            <div className="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center text-primary">
-              <Rocket className="w-6 h-6" />
+          <div className="absolute -top-16 -right-8 z-20 glass-card p-6 rounded-[2rem] border-white/10 flex items-center gap-4 shadow-2xl animate-bounce-slow">
+            <div className="w-12 h-12 rounded-2xl bg-primary/20 flex items-center justify-center text-primary">
+              <Rocket className="w-7 h-7" />
             </div>
             <div className="flex flex-col text-right">
-              <span className="text-xl font-bold text-foreground">99%</span>
-              <span className="text-[10px] text-muted-foreground font-medium">أداء فائق الاستجابة</span>
+              <span className="text-2xl font-bold text-foreground">99%</span>
+              <span className="text-xs text-muted-foreground font-medium">أداء فائق الاستجابة</span>
             </div>
           </div>
 
           {/* Central Layered Card */}
-          <div className="relative w-72 h-80 glass-card rounded-[3rem] border-white/10 flex flex-col items-center justify-center p-8 overflow-hidden shadow-2xl group">
+          <div className="relative w-80 h-[24rem] glass-card rounded-[4rem] border-white/10 flex flex-col items-center justify-center p-10 overflow-hidden shadow-2xl group">
             <div className="absolute inset-0 bg-gradient-to-b from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             
-            <div className="absolute top-6 left-6 w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-primary">
-              <Laptop className="w-5 h-5" />
+            <div className="absolute top-8 left-8 w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center text-primary">
+              <Laptop className="w-6 h-6" />
             </div>
 
-            <div className="w-24 h-24 rounded-[2rem] bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-lg shadow-primary/20 mb-6 group-hover:scale-110 transition-transform duration-500 overflow-hidden relative">
+            <div className="w-32 h-32 rounded-[2.5rem] bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-lg shadow-primary/20 mb-8 group-hover:scale-110 transition-transform duration-500 overflow-hidden relative">
               {logo ? (
                 <Image 
                   src={logo.imageUrl} 
@@ -48,26 +48,26 @@ export function Hero() {
                   className="object-cover"
                 />
               ) : (
-                <Code2 className="w-12 h-12 text-white" />
+                <Code2 className="w-16 h-16 text-white" />
               )}
             </div>
 
-            <h3 className="text-2xl font-bold mb-2 text-foreground">شانان سمارت</h3>
-            <p className="text-sm text-muted-foreground text-center">بوابتك إلى المستقبل الرقمي</p>
+            <h3 className="text-3xl font-bold mb-3 text-foreground">شانان سمارت</h3>
+            <p className="text-base text-muted-foreground text-center">بوابتك إلى المستقبل الرقمي</p>
 
-            <div className="absolute bottom-6 right-6 w-8 h-8 rounded-lg bg-green-500/10 flex items-center justify-center text-green-500">
-              <ShieldCheck className="w-4 h-4" />
+            <div className="absolute bottom-8 right-8 w-10 h-10 rounded-xl bg-green-500/10 flex items-center justify-center text-green-500">
+              <ShieldCheck className="w-5 h-5" />
             </div>
           </div>
 
           {/* Code Snippet Card (Bottom Left) - Tilted more to the left */}
-          <div className="absolute -bottom-8 -left-12 z-20 glass-card p-6 rounded-3xl border-white/10 shadow-2xl w-64 hidden md:block animate-float">
-            <div className="flex gap-1.5 mb-4">
-              <div className="w-2.5 h-2.5 rounded-full bg-red-500/50" />
-              <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/50" />
-              <div className="w-2.5 h-2.5 rounded-full bg-green-500/50" />
+          <div className="absolute -bottom-12 -left-20 z-20 glass-card p-8 rounded-[2.5rem] border-white/10 shadow-2xl w-80 hidden md:block animate-float">
+            <div className="flex gap-2 mb-5">
+              <div className="w-3 h-3 rounded-full bg-red-500/50" />
+              <div className="w-3 h-3 rounded-full bg-yellow-500/50" />
+              <div className="w-3 h-3 rounded-full bg-green-500/50" />
             </div>
-            <pre className="font-mono text-[10px] leading-relaxed">
+            <pre className="font-mono text-xs leading-relaxed">
               <code className="text-primary">const</code> <code className="text-foreground">solution</code> = () ={` > {`}
               <br />
               &nbsp;&nbsp;growth: <code className="text-green-500">true</code>,
@@ -110,8 +110,8 @@ export function Hero() {
           50% { transform: translateY(-15px); }
         }
         @keyframes float {
-          0%, 100% { transform: translateY(0) rotate(-8deg); }
-          50% { transform: translateY(-10px) rotate(-4deg); }
+          0%, 100% { transform: translateY(0) rotate(-12deg); }
+          50% { transform: translateY(-15px) rotate(-6deg); }
         }
         .animate-bounce-slow {
           animation: bounce-slow 4s ease-in-out infinite;
