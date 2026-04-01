@@ -8,7 +8,10 @@ export function Footer() {
 
   return (
     <footer className="bg-background pt-20 pb-10 border-t border-white/5 relative overflow-hidden">
-      {/* Subtle glow effect for footer */}
+      {/* Top glow separator line */}
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent"></div>
+      
+      {/* Subtle glow effect for footer bottom */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent"></div>
       
       <div className="container mx-auto px-6 relative z-10">
