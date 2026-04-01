@@ -5,6 +5,12 @@
       "description": "شعار شانان سمارت الرسمي",
       "imageUrl": "https://i.postimg.cc/t41FxxDT/IMG-20260318-WA0005(1).jpg",
       "imageHint": "logo brand"
+    },
+    {
+      "id": "story-image",
+      "description": "صورة برمجية توضيحية لقصة نجاح الشركة",
+      "imageUrl": "https://i.postimg.cc/02zFjqcw/programming.jpg",
+      "imageHint": "programming coding"
     }
   ]
 }
