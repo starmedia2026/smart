@@ -20,14 +20,14 @@ export function Hero() {
       <div className="container mx-auto px-6 relative z-10 flex flex-col items-center">
         {/* Floating Badges and Central Card Area */}
         <div className="relative w-full max-w-2xl mb-24 flex flex-col items-center">
-          {/* Top Badge: 99% Performance */}
-          <div className="absolute -top-20 -right-12 z-20 glass-card p-8 rounded-[2.5rem] border-white/10 flex items-center gap-5 shadow-2xl animate-bounce-slow">
-            <div className="w-14 h-14 rounded-2xl bg-primary/20 flex items-center justify-center text-primary">
-              <Rocket className="w-8 h-8" />
+          {/* Top Badge: 99% Performance - REDUCED SIZE */}
+          <div className="absolute -top-16 -right-8 z-20 glass-card p-5 rounded-3xl border-white/10 flex items-center gap-4 shadow-2xl animate-bounce-slow">
+            <div className="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center text-primary">
+              <Rocket className="w-5 h-5" />
             </div>
             <div className="flex flex-col text-right">
-              <span className="text-3xl font-bold text-foreground">99%</span>
-              <span className="text-sm text-muted-foreground font-medium">أداء فائق الاستجابة</span>
+              <span className="text-xl font-bold text-foreground leading-none">99%</span>
+              <span className="text-[10px] text-muted-foreground font-medium mt-1">أداء فائق الاستجابة</span>
             </div>
           </div>
 
