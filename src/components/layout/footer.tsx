@@ -53,15 +53,15 @@ export function Footer() {
             <ul className="space-y-4">
               <li className="flex items-center gap-3 text-muted-foreground group">
                 <Mail className="w-5 h-5 group-hover:text-primary transition-colors" />
-                <a href="mailto:shanansmart1@gmail.com">shanansmart1@gmail.com</a>
+                <a href="mailto:shanansmart1@gmail.com" className="hover:text-primary transition-colors">shanansmart1@gmail.com</a>
               </li>
               <li className="flex items-center gap-3 text-muted-foreground group">
                 <Phone className="w-5 h-5 group-hover:text-primary transition-colors" />
-                <span dir="ltr">+966 5071 40918</span>
+                <span dir="ltr" className="group-hover:text-primary transition-colors">+966 531813787</span>
               </li>
               <li className="flex items-center gap-3 text-muted-foreground group">
                 <Phone className="w-5 h-5 group-hover:text-primary transition-colors" />
-                <span dir="ltr">+967 7746 12600</span>
+                <span dir="ltr" className="group-hover:text-primary transition-colors">+966 550855456</span>
               </li>
             </ul>
           </div>
