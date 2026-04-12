@@ -1,6 +1,6 @@
 'use client';
 
-import { ArrowLeft, Rocket, Sparkles, Code2, ShieldCheck, Laptop } from 'lucide-react';
+import { ArrowLeft, Rocket, ShieldCheck, Laptop, Code2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
@@ -20,7 +20,7 @@ export function Hero() {
       <div className="container mx-auto px-6 relative z-10 flex flex-col items-center">
         {/* Floating Badges and Central Card Area */}
         <div className="relative w-full max-w-2xl mb-24 flex flex-col items-center">
-          {/* Top Badge: 99% Performance - REDUCED SIZE */}
+          {/* Top Badge: 99% Performance */}
           <div className="absolute -top-16 -right-8 z-20 glass-card p-5 rounded-3xl border-white/10 flex items-center gap-4 shadow-2xl animate-bounce-slow">
             <div className="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center text-primary">
               <Rocket className="w-5 h-5" />
@@ -31,7 +31,7 @@ export function Hero() {
             </div>
           </div>
 
-          {/* Central Layered Card - Enlarged */}
+          {/* Central Layered Card */}
           <div className="relative w-96 h-[28rem] glass-card rounded-[5rem] border-white/10 flex flex-col items-center justify-center p-12 overflow-hidden shadow-2xl group">
             <div className="absolute inset-0 bg-gradient-to-b from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             
@@ -60,7 +60,7 @@ export function Hero() {
             </div>
           </div>
 
-          {/* Code Snippet Card (Bottom Left) - Reduced Size */}
+          {/* Code Snippet Card (Bottom Left) */}
           <div className="absolute -bottom-8 -left-48 z-20 glass-card p-6 rounded-3xl border-white/10 shadow-2xl w-80 hidden lg:block animate-float">
             <div className="flex gap-2 mb-4">
               <div className="w-3 h-3 rounded-full bg-red-500/50" />
@@ -105,23 +105,6 @@ export function Hero() {
           </div>
         </div>
       </div>
-
-      <style jsx global>{`
-        @keyframes bounce-slow {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-15px); }
-        }
-        @keyframes float {
-          0%, 100% { transform: translateY(0) rotate(-22deg); }
-          50% { transform: translateY(-25px) rotate(-16deg); }
-        }
-        .animate-bounce-slow {
-          animation: bounce-slow 4s ease-in-out infinite;
-        }
-        .animate-float {
-          animation: float 6s ease-in-out infinite;
-        }
-      `}</style>
     </section>
   );
 }

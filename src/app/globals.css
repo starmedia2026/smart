@@ -27,7 +27,6 @@
   }
 
   .dark {
-    /* بنفسجي داكن جداً كخلفية أساسية */
     --background: 260 45% 4%;
     --foreground: 0 0% 98%;
     --card: 260 40% 7%;
@@ -60,7 +59,6 @@
     color: hsl(var(--foreground));
   }
   
-  /* تدرج لوني جميل للخلفية في الوضع الليلي */
   .dark body {
     background-image: radial-gradient(circle at 50% -20%, hsl(260 45% 12%), hsl(260 45% 4%));
     background-attachment: fixed;
@@ -87,6 +85,24 @@
   .btn-outline {
     @apply border border-border text-foreground px-6 py-3 rounded-lg font-medium hover:bg-muted transition-all active:scale-95 flex items-center justify-center gap-2;
   }
+}
+
+@keyframes bounce-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(-22deg); }
+  50% { transform: translateY(-25px) rotate(-16deg); }
+}
+
+.animate-bounce-slow {
+  animation: bounce-slow 4s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
 }
 
 .scroll-reveal {
