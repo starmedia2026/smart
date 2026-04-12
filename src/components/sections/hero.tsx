@@ -21,13 +21,13 @@ export function Hero() {
         {/* Floating Badges and Central Card Area */}
         <div className="relative w-full max-w-2xl mb-24 flex flex-col items-center">
           {/* Top Badge: 99% Performance */}
-          <div className="absolute -top-16 -right-8 z-20 glass-card p-5 rounded-3xl border-white/10 flex items-center gap-4 shadow-2xl animate-bounce-slow">
-            <div className="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center text-primary">
-              <Rocket className="w-5 h-5" />
+          <div className="absolute -top-16 -right-8 z-20 glass-card p-4 rounded-3xl border-white/10 flex items-center gap-3 shadow-2xl animate-bounce-slow">
+            <div className="w-8 h-8 rounded-xl bg-primary/20 flex items-center justify-center text-primary">
+              <Rocket className="w-4 h-4" />
             </div>
             <div className="flex flex-col text-right">
-              <span className="text-xl font-bold text-foreground leading-none">99%</span>
-              <span className="text-[10px] text-muted-foreground font-medium mt-1">أداء فائق الاستجابة</span>
+              <span className="text-lg font-bold text-foreground leading-none">99%</span>
+              <span className="text-[9px] text-muted-foreground font-medium mt-1">أداء فائق الاستجابة</span>
             </div>
           </div>
 
@@ -61,13 +61,13 @@ export function Hero() {
           </div>
 
           {/* Code Snippet Card (Bottom Left) */}
-          <div className="absolute -bottom-8 -left-48 z-20 glass-card p-6 rounded-3xl border-white/10 shadow-2xl w-80 hidden lg:block animate-float">
-            <div className="flex gap-2 mb-4">
-              <div className="w-3 h-3 rounded-full bg-red-500/50" />
-              <div className="w-3 h-3 rounded-full bg-yellow-500/50" />
-              <div className="w-3 h-3 rounded-full bg-green-500/50" />
+          <div className="absolute -bottom-8 -left-32 z-20 glass-card p-5 rounded-3xl border-white/10 shadow-2xl w-64 hidden lg:block animate-float">
+            <div className="flex gap-2 mb-3">
+              <div className="w-2 h-2 rounded-full bg-red-500/50" />
+              <div className="w-2 h-2 rounded-full bg-yellow-500/50" />
+              <div className="w-2 h-2 rounded-full bg-green-500/50" />
             </div>
-            <pre className="font-mono text-xs leading-relaxed">
+            <pre className="font-mono text-[10px] leading-relaxed">
               <code className="text-primary">const</code> <code className="text-foreground">solution</code> = () ={` > {`}
               <br />
               &nbsp;&nbsp;growth: <code className="text-green-500">true</code>,
@@ -95,12 +95,14 @@ export function Hero() {
           </h1>
 
           <div className="flex flex-wrap justify-center gap-6 mt-12">
-            <Button className="btn-primary px-10 py-8 text-xl rounded-3xl shadow-xl shadow-primary/20">
-              ابدأ رحلتك الآن
-              <ArrowLeft className="w-6 h-6 mr-3" />
+            <Button asChild className="btn-primary px-10 py-8 text-xl rounded-3xl shadow-xl shadow-primary/20">
+              <a href="#intro">
+                ابدأ رحلتك الآن
+                <ArrowLeft className="w-6 h-6 mr-3" />
+              </a>
             </Button>
-            <Button variant="outline" className="btn-outline px-10 py-8 text-xl rounded-3xl border-white/10 glass shadow-xl hover:bg-muted">
-              استكشف أعمالنا
+            <Button variant="outline" asChild className="btn-outline px-10 py-8 text-xl rounded-3xl border-white/10 glass shadow-xl hover:bg-muted">
+              <a href="#products">استكشف أعمالنا</a>
             </Button>
           </div>
         </div>

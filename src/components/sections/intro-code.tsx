@@ -2,7 +2,7 @@ import { Code2 } from 'lucide-react';
 
 export function IntroCode() {
   return (
-    <section className="py-24 bg-white/[0.02]">
+    <section id="intro" className="py-24 bg-white/[0.02] scroll-mt-24">
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
