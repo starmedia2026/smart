@@ -14,7 +14,7 @@ export function CTAFinal() {
             </p>
             <Button asChild className="bg-white text-primary px-10 py-7 text-xl rounded-2xl font-bold hover:bg-white/90 transition-all flex items-center mx-auto shadow-2xl active:scale-95 border-none">
               <a 
-                href="https://wa.me/967770326828" 
+                href="https://wa.me/966531813787" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="flex items-center justify-center"

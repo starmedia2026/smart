@@ -33,7 +33,7 @@ export function Products() {
         <div className="flex justify-center">
           <Button asChild className="btn-primary px-10 py-8 text-xl rounded-2xl shadow-xl shadow-primary/20 group">
             <a 
-              href="https://wa.me/967770326828" 
+              href="https://wa.me/966531813787" 
               target="_blank" 
               rel="noopener noreferrer"
               className="flex items-center justify-center"
