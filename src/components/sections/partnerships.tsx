@@ -1,48 +1,58 @@
-
 'use client';
 
 import Image from 'next/image';
-import { Users } from 'lucide-react';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
-export function Partnerships() {
-  const partners = PlaceHolderImages.filter(img => img.id.startsWith('partner-'));
+/**
+ * @fileOverview قسم شركاء النجاح بتصميم البطاقات البيضاء والظلال الناعمة.
+ * يتم عرضه قبل التذييل مباشرة وبجانب قسم CTA.
+ */
 
-  if (partners.length === 0) return null;
+export function Partnerships() {
+  // معرفات الصور من ملف placeholder-images.json
+  const partnerIds = ['partner-alwadi', 'partner-adn', 'partner-star', 'partner-asala', 'partner-saa'];
 
   return (
-    <section id="partners" className="py-24 bg-[#F8FAFC]">
+    <section id="partners" className="py-24 bg-background">
       <div className="container mx-auto px-6">
-        {/* Header with specific styling and icons */}
-        <div className="text-center mb-20">
-          <div className="flex items-center justify-center gap-6 mb-4">
-            <Users className="w-10 h-10 text-[#234E94]/30" />
-            <h2 className="text-4xl md:text-6xl font-bold font-headline text-[#234E94] tracking-tight">شركاء النجاح</h2>
-            <Users className="w-10 h-10 text-[#234E94]/30" />
-          </div>
-          <div className="w-24 h-1.5 bg-[#234E94]/20 mx-auto rounded-full mb-6"></div>
-          <p className="text-[#64748B] text-xl font-medium">
-            نعتز بثقتهم ونفخر بكوننا جزءاً من رحلتهم نحو التميز الرقمي
-          </p>
-        </div>
         
-        {/* Logos Grid with polished white cards */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10">
-          {partners.map((partner, idx) => (
-            <div 
-              key={`${partner.id}-${idx}`} 
-              className="group bg-white rounded-[2.5rem] p-10 shadow-[0_15px_50px_-20px_rgba(0,0,0,0.08)] flex items-center justify-center aspect-square transition-all duration-500 hover:-translate-y-3 hover:shadow-[0_30px_60px_-15px_rgba(35,78,148,0.15)] border border-slate-50"
-            >
-              <div className="relative w-full h-full transform transition-transform duration-500 group-hover:scale-110">
-                <Image
-                  src={partner.imageUrl}
-                  alt={partner.description}
-                  fill
-                  className="object-contain"
-                />
+        {/* عنوان القسم مع خطوط جانبية أنيقة */}
+        <div className="flex items-center justify-center gap-6 mb-20">
+          <div className="h-px flex-1 max-w-[100px] bg-[#234E94]/20 hidden md:block" />
+          <h2 className="text-3xl md:text-4xl font-bold font-headline text-[#234E94] text-center flex items-center gap-4">
+            <span className="w-2 h-2 rounded-full bg-[#234E94] animate-pulse" />
+            شركاء النجاح
+            <span className="w-2 h-2 rounded-full bg-[#234E94] animate-pulse" />
+          </h2>
+          <div className="h-px flex-1 max-w-[100px] bg-[#234E94]/20 hidden md:block" />
+        </div>
+
+        {/* شبكة الشركاء ببطاقات بيضاء ناعمة */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 md:gap-12">
+          {partnerIds.map((id, idx) => {
+            const img = PlaceHolderImages.find(p => p.id === id);
+            return (
+              <div 
+                key={idx} 
+                className="bg-white rounded-[3rem] p-10 flex items-center justify-center shadow-[0_20px_50px_rgba(0,0,0,0.03)] border border-slate-50 hover:shadow-[0_30px_60px_rgba(0,0,0,0.08)] transition-all duration-700 group aspect-square relative overflow-hidden"
+              >
+                {/* تأثير خلفية بسيط عند التحويم */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                
+                <div className="relative w-full h-full grayscale group-hover:grayscale-0 transition-all duration-700 transform group-hover:scale-110">
+                  {img && (
+                    <Image 
+                      src={img.imageUrl} 
+                      alt="شريك نجاح شانان سمارت" 
+                      fill 
+                      className="object-contain p-2"
+                      data-ai-hint="corporate logo"
+                    />
+                  )}
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

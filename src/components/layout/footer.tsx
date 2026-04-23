@@ -1,4 +1,3 @@
-
 import Link from 'next/link';
 import Image from 'next/image';
 import { Mail, Phone, Heart } from 'lucide-react';
@@ -6,7 +5,6 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export function Footer() {
   const logo = PlaceHolderImages.find(img => img.id === 'app-logo');
-  const vatLogo = PlaceHolderImages.find(img => img.id === 'vat-logo');
 
   return (
     <footer className="bg-gradient-to-b from-primary to-accent pt-20 pb-10 relative overflow-hidden text-white">
@@ -18,7 +16,7 @@ export function Footer() {
       
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-          <div>
+          <div className="text-right">
             <Link href="/" className="flex items-center gap-4 mb-6">
               {logo && (
                 <div className="relative w-14 h-14 rounded-2xl overflow-hidden border border-white/20 bg-white/10 backdrop-blur-md shadow-2xl">
@@ -39,59 +37,54 @@ export function Footer() {
               نبتكر حلولاً برمجية متطورة تدمج بين الإبداع والتقنية لتحقيق أهدافك التجارية وضمان نمو مستدام.
             </p>
 
-{/* VAT Section */}
-<div className="mt-8 bg-white/5 backdrop-blur-sm border border-white/10 p-4 rounded-2xl inline-flex items-center gap-4 shadow-lg group hover:bg-white/10 transition-all duration-300">
-
-  {/* صورة الرقم الضريبي بدون خلفية */}
-  <div className="relative w-16 h-16 rounded-lg overflow-hidden shrink-0">
-    <Image 
-      src="/vat.jpg"
-      alt="الرقم الضريبي"
-      fill
-      className="object-contain"
-    />
-  </div>
-
-  {/* النص */}
-  <div className="flex flex-col items-start text-right">
-    <span className="text-xs font-bold text-white/70">الرقم الضريبي</span>
-    <span dir="ltr" className="text-lg font-bold tracking-wider text-white">
-      302070513600003
-    </span>
-  </div>
-
-</div>
+            {/* VAT Section - Logo on Right, Text on Right */}
+            <div className="mt-8 bg-white/5 backdrop-blur-sm border border-white/10 p-4 rounded-2xl inline-flex items-center gap-4 shadow-lg group hover:bg-white/10 transition-all duration-300">
+              <div className="relative w-16 h-16 rounded-lg overflow-hidden shrink-0">
+                <Image 
+                  src="/vat.jpg"
+                  alt="الرقم الضريبي"
+                  fill
+                  className="object-contain"
+                />
+              </div>
+              <div className="flex flex-col items-start text-right">
+                <span className="text-xs font-bold text-white/70">الرقم الضريبي</span>
+                <span dir="ltr" className="text-lg font-bold tracking-wider text-white">
+                  302070513600003
+                </span>
+              </div>
+            </div>
           </div>
 
-          <div>
+          <div className="text-right">
             <h4 className="text-white font-bold mb-6 text-xl">روابط سريعة</h4>
             <ul className="space-y-4">
               <li><Link href="/" className="text-white/80 hover:text-white transition-colors">الرئيسية</Link></li>
               <li><Link href="#about" className="text-white/80 hover:text-white transition-colors">من نحن</Link></li>
               <li><Link href="#services" className="text-white/80 hover:text-white transition-colors">خدماتنا</Link></li>
-              <li><Link href="#products" className="text-white/80 hover:text-white transition-colors">منتجاتنا</Link></li>
+              <li><Link href="#partners" className="text-white/80 hover:text-white transition-colors">شركاؤنا</Link></li>
             </ul>
           </div>
 
-          <div>
+          <div className="text-right">
             <h4 className="text-white font-bold mb-6 text-xl">تواصل معنا</h4>
             <ul className="space-y-4">
-              <li className="flex items-center gap-3 text-white/90 group">
+              <li className="flex flex-row-reverse items-center gap-3 text-white/90 group">
                 <Mail className="w-5 h-5 text-white/70 group-hover:text-white transition-colors" />
                 <a href="mailto:shanansmart1@gmail.com" className="hover:text-white transition-colors">shanansmart1@gmail.com</a>
               </li>
-              <li className="flex items-center gap-3 text-white/90 group">
+              <li className="flex flex-row-reverse items-center gap-3 text-white/90 group">
                 <Phone className="w-5 h-5 text-white/70 group-hover:text-white transition-colors" />
                 <span dir="ltr" className="group-hover:text-white transition-colors">+966 531813787</span>
               </li>
-              <li className="flex items-center gap-3 text-white/90 group">
+              <li className="flex flex-row-reverse items-center gap-3 text-white/90 group">
                 <Phone className="w-5 h-5 text-white/70 group-hover:text-white transition-colors" />
                 <span dir="ltr" className="group-hover:text-white transition-colors">+966 550855456</span>
               </li>
             </ul>
           </div>
 
-          <div>
+          <div className="text-right">
             <h4 className="text-white font-bold mb-6 text-xl">قانوني</h4>
             <ul className="space-y-4">
               <li><Link href="#" className="text-white/80 hover:text-white transition-colors">سياسة الخصوصية</Link></li>
