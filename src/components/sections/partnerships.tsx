@@ -1,16 +1,43 @@
+
+'use client';
+
+import Image from 'next/image';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
+
 export function Partnerships() {
+  const partners = PlaceHolderImages.filter(img => img.id.startsWith('partner-'));
+  
+  // Duplicate partners for infinite scroll effect
+  const scrollingPartners = [...partners, ...partners];
+
   return (
-    <section id="partners" className="py-20 border-y border-white/5 scroll-mt-20">
-      <div className="container mx-auto px-6 text-center">
-        <h2 className="text-xl font-bold text-muted-foreground mb-12 uppercase tracking-[0.2em]">تحالفات عالمية طموحة</h2>
-        <div className="flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
-           {/* Placeholders for logos */}
-           <div className="text-3xl font-headline font-bold text-foreground">TECH_CORP</div>
-           <div className="text-3xl font-headline font-bold text-foreground">CLOUD_X</div>
-           <div className="text-3xl font-headline font-bold text-foreground">GLOBAL_SOFT</div>
-           <div className="text-3xl font-headline font-bold text-foreground">NEXUS_SYSTEMS</div>
-           <div className="text-3xl font-headline font-bold text-foreground">INNO_TECH</div>
+    <section id="partners" className="py-24 overflow-hidden bg-muted/30">
+      <div className="container mx-auto px-6 mb-12 text-center">
+        <h2 className="text-3xl font-bold font-headline mb-4">شركاء النجاح</h2>
+        <div className="w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto rounded-full"></div>
+      </div>
+      
+      <div className="relative flex">
+        {/* Marquee Container */}
+        <div className="flex gap-12 items-center animate-marquee whitespace-nowrap">
+          {scrollingPartners.map((partner, idx) => (
+            <div 
+              key={`${partner.id}-${idx}`} 
+              className="relative w-40 h-24 grayscale hover:grayscale-0 transition-all duration-500 opacity-60 hover:opacity-100 flex-shrink-0"
+            >
+              <Image
+                src={partner.imageUrl}
+                alt={partner.description}
+                fill
+                className="object-contain"
+              />
+            </div>
+          ))}
         </div>
+        
+        {/* Gradient Overlays for smooth edges */}
+        <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none"></div>
+        <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none"></div>
       </div>
     </section>
   );
