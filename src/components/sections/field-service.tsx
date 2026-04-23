@@ -30,7 +30,7 @@ const systems: System[] = [
   { 
     id: 'financial', 
     title: "نظام نمو المالي", 
-    image: "https://picsum.photos/seed/fin1/1200/800", 
+    image: "/fin.jpg", 
     icon: BarChart3,
     hint: "financial dashboard",
     features: [
@@ -44,7 +44,7 @@ const systems: System[] = [
   { 
     id: 'hr', 
     title: "نظام الموارد البشرية", 
-    image: "https://picsum.photos/seed/hr2/1200/800", 
+    image: "/hr.jpg", 
     icon: Users,
     hint: "hr management",
     features: [
@@ -58,7 +58,7 @@ const systems: System[] = [
   { 
     id: 'realestate', 
     title: "النظام العقاري", 
-    image: "https://picsum.photos/seed/re3/1200/800", 
+    image: "/realestate.jpg", 
     icon: Building2,
     hint: "real estate software",
     features: [
@@ -72,7 +72,7 @@ const systems: System[] = [
   { 
     id: 'legal', 
     title: "نظام المحاماة", 
-    image: "https://picsum.photos/seed/law4/1200/800", 
+    image: "/legal.jpg",
     icon: Gavel,
     hint: "legal platform",
     features: [
@@ -86,7 +86,7 @@ const systems: System[] = [
   { 
     id: 'manufacturing', 
     title: "نظام التصنيع", 
-    image: "https://picsum.photos/seed/mfg5/1200/800", 
+    image: "/mfg.jpg", 
     icon: Factory,
     hint: "factory automation",
     features: [
@@ -100,7 +100,7 @@ const systems: System[] = [
   { 
     id: 'fieldservice', 
     title: "نظام الخدمة الميدانية", 
-    image: "https://picsum.photos/seed/field6/1200/800", 
+    image: "/field.jpg", 
     icon: Truck,
     hint: "field operations",
     features: [
@@ -126,7 +126,7 @@ export function FieldServiceSection() {
       setCurrentIndex((prev) => (prev + 1) % systems.length);
       setProgress(0);
       setIsChanging(false);
-    }, 600); // Increased for smoother transition
+    }, 600);
   }, []);
 
   useEffect(() => {
@@ -238,4 +238,3 @@ export function FieldServiceSection() {
     </section>
   );
 }
-

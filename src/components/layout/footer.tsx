@@ -66,24 +66,40 @@ export function Footer() {
             </ul>
           </div>
 
-          <div className="text-right">
-            <h4 className="text-white font-bold mb-6 text-xl">تواصل معنا</h4>
-            <ul className="space-y-4">
-              <li className="flex flex-row-reverse items-center gap-3 text-white/90 group">
-                <Mail className="w-5 h-5 text-white/70 group-hover:text-white transition-colors" />
-                <a href="mailto:shanansmart1@gmail.com" className="hover:text-white transition-colors">shanansmart1@gmail.com</a>
-              </li>
-              <li className="flex flex-row-reverse items-center gap-3 text-white/90 group">
-                <Phone className="w-5 h-5 text-white/70 group-hover:text-white transition-colors" />
-                <span dir="ltr" className="group-hover:text-white transition-colors">+966 531813787</span>
-              </li>
-              <li className="flex flex-row-reverse items-center gap-3 text-white/90 group">
-                <Phone className="w-5 h-5 text-white/70 group-hover:text-white transition-colors" />
-                <span dir="ltr" className="group-hover:text-white transition-colors">+966 550855456</span>
-              </li>
-            </ul>
-          </div>
+          <div className="w-full text-right">
+  
+  {/* العنوان يمين */}
+  <h4 className="text-white font-bold mb-6 text-xl text-right">
+    تواصل معنا
+  </h4>
 
+  {/* المحتوى يسار */}
+  <ul className="space-y-4 text-left">
+
+    <li className="flex items-center justify-start gap-3 text-white/90 group">
+      <Mail className="w-5 h-5 text-white/70 group-hover:text-white transition-colors" />
+      <a href="mailto:shanansmart1@gmail.com" className="hover:text-white transition-colors">
+        shanansmart1@gmail.com
+      </a>
+    </li>
+
+    <li className="flex items-center justify-start gap-3 text-white/90 group">
+      <Phone className="w-5 h-5 text-white/70 group-hover:text-white transition-colors" />
+      <span dir="ltr">
+        +966 531813787
+      </span>
+    </li>
+
+    <li className="flex items-center justify-start gap-3 text-white/90 group">
+      <Phone className="w-5 h-5 text-white/70 group-hover:text-white transition-colors" />
+      <span dir="ltr">
+        +966 550855456
+      </span>
+    </li>
+
+  </ul>
+
+</div>
           <div className="text-right">
             <h4 className="text-white font-bold mb-6 text-xl">قانوني</h4>
             <ul className="space-y-4">
