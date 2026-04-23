@@ -1,11 +1,9 @@
-
 import { Navbar } from '@/components/layout/navbar';
 import { Hero } from '@/components/sections/hero';
 import { IntroCode } from '@/components/sections/intro-code';
 import { Story } from '@/components/sections/story';
 import { VisionMission } from '@/components/sections/vision';
 import { Services } from '@/components/sections/services';
-import { Products } from '@/components/sections/products';
 import { FieldServiceSection } from '@/components/sections/field-service';
 import { CTAFinal } from '@/components/sections/cta-final';
 import { Partnerships } from '@/components/sections/partnerships';
@@ -21,7 +19,6 @@ export default function Home() {
         <Story />
         <VisionMission />
         <Services />
-        <Products />
         <FieldServiceSection />
         <CTAFinal />
         <Partnerships />
