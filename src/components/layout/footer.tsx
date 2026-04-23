@@ -39,23 +39,28 @@ export function Footer() {
               نبتكر حلولاً برمجية متطورة تدمج بين الإبداع والتقنية لتحقيق أهدافك التجارية وضمان نمو مستدام.
             </p>
 
-            {/* VAT Section - Updated Order: Logo on the right (first in RTL) */}
-            <div className="mt-8 bg-white/5 backdrop-blur-sm border border-white/10 p-4 rounded-2xl inline-flex items-center gap-4 shadow-lg group hover:bg-white/10 transition-all duration-300">
-              {vatLogo && (
-                <div className="relative w-16 h-16 rounded-lg overflow-hidden bg-white p-1 shrink-0">
-                  <Image 
-                    src={vatLogo.imageUrl} 
-                    alt="الرقم الضريبي" 
-                    fill
-                    className="object-contain"
-                  />
-                </div>
-              )}
-              <div className="flex flex-col items-start text-right">
-                <span className="text-xs font-bold text-white/70">الرقم الضريبي</span>
-                <span dir="ltr" className="text-lg font-bold tracking-wider text-white">302070513600003</span>
-              </div>
-            </div>
+{/* VAT Section */}
+<div className="mt-8 bg-white/5 backdrop-blur-sm border border-white/10 p-4 rounded-2xl inline-flex items-center gap-4 shadow-lg group hover:bg-white/10 transition-all duration-300">
+
+  {/* صورة الرقم الضريبي بدون خلفية */}
+  <div className="relative w-16 h-16 rounded-lg overflow-hidden shrink-0">
+    <Image 
+      src="/vat.jpg"
+      alt="الرقم الضريبي"
+      fill
+      className="object-contain"
+    />
+  </div>
+
+  {/* النص */}
+  <div className="flex flex-col items-start text-right">
+    <span className="text-xs font-bold text-white/70">الرقم الضريبي</span>
+    <span dir="ltr" className="text-lg font-bold tracking-wider text-white">
+      302070513600003
+    </span>
+  </div>
+
+</div>
           </div>
 
           <div>
