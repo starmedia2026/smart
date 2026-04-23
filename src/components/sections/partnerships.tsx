@@ -11,17 +11,17 @@ export function Partnerships() {
   if (partners.length === 0) return null;
 
   return (
-    <section id="partners" className="py-24 bg-slate-50/50">
+    <section id="partners" className="py-24 bg-[#F8FAFC]">
       <div className="container mx-auto px-6">
         {/* Header with specific styling and icons */}
         <div className="text-center mb-20">
           <div className="flex items-center justify-center gap-6 mb-4">
-            <Users className="w-10 h-10 text-[#234E94]/40" />
+            <Users className="w-10 h-10 text-[#234E94]/30" />
             <h2 className="text-4xl md:text-6xl font-bold font-headline text-[#234E94] tracking-tight">شركاء النجاح</h2>
-            <Users className="w-10 h-10 text-[#234E94]/40" />
+            <Users className="w-10 h-10 text-[#234E94]/30" />
           </div>
           <div className="w-24 h-1.5 bg-[#234E94]/20 mx-auto rounded-full mb-6"></div>
-          <p className="text-muted-foreground text-xl font-medium">
+          <p className="text-[#64748B] text-xl font-medium">
             نعتز بثقتهم ونفخر بكوننا جزءاً من رحلتهم نحو التميز الرقمي
           </p>
         </div>
