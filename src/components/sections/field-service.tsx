@@ -15,6 +15,7 @@ import {
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
+import { cn } from '@/lib/utils';
 
 interface System {
   id: string;
@@ -22,6 +23,7 @@ interface System {
   image: string;
   icon: LucideIcon;
   hint: string;
+  features: string[];
 }
 
 const systems: System[] = [
@@ -30,46 +32,88 @@ const systems: System[] = [
     title: "نظام نمو المالي", 
     image: "https://picsum.photos/seed/fin1/1200/800", 
     icon: BarChart3,
-    hint: "financial dashboard"
+    hint: "financial dashboard",
+    features: [
+      "إدارة الحسابات شركة واحدة أو شركات متعددة",
+      "الفواتير وإدارة المبيعات",
+      "إدارة الأصول والاهلاكات",
+      "الموازنات وارتباطها ببنود الصرف",
+      "تعدد العملات ووحدات عمل ومراكز تكلفة"
+    ]
   },
   { 
     id: 'hr', 
     title: "نظام الموارد البشرية", 
     image: "https://picsum.photos/seed/hr2/1200/800", 
     icon: Users,
-    hint: "hr management"
+    hint: "hr management",
+    features: [
+      "إدارة سجلات الموظفين والوثائق",
+      "مسيرات الرواتب والبدلات",
+      "إدارة الحضور والانصراف والخدمة الذاتية",
+      "تقييم الأداء والتدريب",
+      "إدارة الإجازات والتذاكر"
+    ]
   },
   { 
     id: 'realestate', 
     title: "النظام العقاري", 
     image: "https://picsum.photos/seed/re3/1200/800", 
     icon: Building2,
-    hint: "real estate software"
+    hint: "real estate software",
+    features: [
+      "إدارة الوحدات والمستأجرين",
+      "عقود الإيجار الإلكترونية",
+      "تحصيل الإيجارات والمتابعة المالية",
+      "إدارة الصيانة والطلبات",
+      "تقارير الإشغال والعوائد"
+    ]
   },
   { 
     id: 'legal', 
     title: "نظام المحاماة", 
     image: "https://picsum.photos/seed/law4/1200/800", 
     icon: Gavel,
-    hint: "legal platform"
+    hint: "legal platform",
+    features: [
+      "إدارة القضايا والجلسات",
+      "أرشفة المستندات القانونية",
+      "إدارة العملاء والتعاقدات",
+      "تنبيهات المواعيد والمهام",
+      "حساب الأتعاب والمصاريف"
+    ]
   },
   { 
     id: 'manufacturing', 
     title: "نظام التصنيع", 
     image: "https://picsum.photos/seed/mfg5/1200/800", 
     icon: Factory,
-    hint: "factory automation"
+    hint: "factory automation",
+    features: [
+      "إدارة أوامر الإنتاج وشجرة المواد BoM",
+      "جدولة الإنتاج ومراقبة الخطوط",
+      "مراقبة الجودة وفحص المنتجات",
+      "حساب تكاليف الإنتاج",
+      "تكامل مع المخازن والمشتريات"
+    ]
   },
   { 
     id: 'fieldservice', 
     title: "نظام الخدمة الميدانية", 
     image: "https://picsum.photos/seed/field6/1200/800", 
     icon: Truck,
-    hint: "field operations"
+    hint: "field operations",
+    features: [
+      "تطبيق الهاتف للموظفين الميدانيين",
+      "توزيع المهام بناءً على الموقع",
+      "تتبع الوقت والمواد المستخدمة",
+      "إغلاق الطلبات بتوقيع العميل",
+      "تتبع المركبات والفرق الميدانية"
+    ]
   },
 ];
 
-const AUTOPLAY_INTERVAL = 5000; // 5 ثوانٍ لكل نظام
+const AUTOPLAY_INTERVAL = 6000;
 
 export function FieldServiceSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -96,92 +140,99 @@ export function FieldServiceSection() {
     return () => clearInterval(timer);
   }, [currentIndex, nextSlide]);
 
-  const features = [
-    "تطبيق الهاتف المحمول لجميع المستخدمين",
-    "إدارة المهام بكفاءة",
-    "التتبع في الوقت الحقيقي",
-    "تفاعل العملاء وردود الفعل",
-    "الفواتير الآلية"
-  ];
-
   const currentSystem = systems[currentIndex];
 
   return (
-    <section className="py-24 bg-background relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-[30%] h-[30%] bg-primary/5 blur-[120px] rounded-full pointer-events-none" />
-      
-      <div className="container mx-auto px-6 relative z-10">
+    <section className="py-24 bg-[#F8FAFC] relative overflow-hidden">
+      <div className="container mx-auto px-6">
         <div className="flex flex-col items-center">
-          {/* Top Text Content */}
-          <div className="w-full max-w-xl text-center mb-12">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-bold mb-8">
-              <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-              منتجاتنا الذكية
-            </div>
+          
+          {/* Main Card Container */}
+          <div className="w-full max-w-4xl bg-white rounded-[3rem] shadow-[0_30px_80px_-15px_rgba(0,0,0,0.1)] border border-border/40 overflow-hidden flex flex-col">
             
-            <h2 className="text-4xl md:text-5xl font-bold font-headline mb-8 text-foreground leading-tight">
-              حلول <span className="text-gradient">متكاملة</span> لكل القطاعات
-            </h2>
+            {/* Top Content: System Details (Matching the Image Style) */}
+            <div className="p-8 md:p-14 text-right flex flex-col items-center md:items-start">
+              {/* Featured Badge */}
+              <div className="inline-flex items-center px-6 py-1 rounded-full bg-[#E0F7F9] text-[#2DD4BF] text-sm font-bold mb-8">
+                منتج مميز
+              </div>
+              
+              {/* System Title */}
+              <h2 className="text-4xl md:text-5xl font-bold font-headline mb-10 text-[#1E3A8A]">
+                {currentSystem.title}
+              </h2>
 
-            <Button asChild className="bg-[#1E3A8A] hover:bg-[#1E3A8A]/90 text-white px-10 py-8 text-xl rounded-2xl shadow-xl shadow-primary/20 transition-all active:scale-95 mb-16 h-auto border-none">
-              <a 
-                href="https://wa.me/966531813787" 
-                target="_blank" 
-                rel="noopener noreferrer"
-              >
-                طلب عرض سعر
-              </a>
-            </Button>
-          </div>
-
-          {/* Dynamic Showcase Card */}
-          <div className="w-full max-w-4xl">
-            <div className="bg-white dark:bg-card rounded-[3.5rem] shadow-[0_30px_70px_-15px_rgba(0,0,0,0.1)] border border-border/50 overflow-hidden group">
-              {/* Image Container */}
-              <div className="relative aspect-[16/10] w-full overflow-hidden p-6 md:p-10">
-                <div className="relative w-full h-full rounded-[2.5rem] overflow-hidden shadow-inner border border-border/10">
-                  <Image 
-                    src={currentSystem.image}
-                    alt={currentSystem.title}
-                    fill
-                    className="object-cover transition-all duration-1000 group-hover:scale-105"
-                    data-ai-hint={currentSystem.hint}
-                  />
-                </div>
+              {/* Feature List */}
+              <div className="space-y-6 mb-12 w-full max-w-lg">
+                {currentSystem.features.map((feature, idx) => (
+                  <div key={idx} className="flex items-center justify-start gap-4 group">
+                    <span className="text-lg font-medium text-slate-600 flex-1">{feature}</span>
+                    <div className="w-6 h-6 rounded-full border-2 border-[#2DD4BF] flex items-center justify-center shrink-0">
+                      <div className="w-2.5 h-2.5 rounded-full bg-[#2DD4BF] scale-0 group-hover:scale-100 transition-transform duration-300" />
+                      <CheckCircle2 className="w-4 h-4 text-[#2DD4BF] opacity-100" />
+                    </div>
+                  </div>
+                ))}
               </div>
 
-              {/* Bottom Navigation Bar */}
-              <div className="p-8 md:p-12 pt-0">
-                <div className="w-full border-2 border-primary/20 rounded-[2rem] p-4 flex items-center justify-between bg-white dark:bg-card">
-                  {/* Left Chevron */}
-                  <div className="w-12 h-12 flex items-center justify-center text-primary group-hover:-translate-x-1 transition-transform">
+              {/* Action Button */}
+              <Button asChild className="bg-[#234E94] hover:bg-[#1E3A8A] text-white px-12 py-8 text-xl rounded-2xl shadow-xl shadow-primary/20 transition-all active:scale-95 h-auto border-none mb-14 self-center md:self-start">
+                <a 
+                  href="https://wa.me/966531813787" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                >
+                  طلب عرض سعر
+                </a>
+              </Button>
+            </div>
+
+            {/* Showcase Image Area */}
+            <div className="relative aspect-[16/9] w-full bg-slate-100 overflow-hidden px-8 md:px-16 pb-8">
+              <div className="relative w-full h-full rounded-[2.5rem] overflow-hidden shadow-2xl border border-white/20">
+                <Image 
+                  src={currentSystem.image}
+                  alt={currentSystem.title}
+                  fill
+                  className="object-cover transition-all duration-1000"
+                  data-ai-hint={currentSystem.hint}
+                />
+              </div>
+            </div>
+
+            {/* Navigation & Progress Bar (The Bar below the button area) */}
+            <div className="bg-white border-t border-border/40 p-6 md:p-10">
+               <div className="w-full border-2 border-[#234E94]/10 rounded-[2.5rem] p-5 flex items-center justify-between bg-slate-50/50">
+                  {/* Left: Indicator Arrow */}
+                  <div className="w-12 h-12 flex items-center justify-center text-[#234E94] opacity-40">
                     <ChevronLeft className="w-8 h-8" />
                   </div>
 
-                  {/* Center Text and Progress */}
+                  {/* Center: System Name & Progress Line */}
                   <div className="flex flex-col items-center flex-1">
-                    <span className="text-xl md:text-3xl font-bold text-[#1E3A8A] dark:text-primary font-headline mb-3 text-center">
+                    <span className="text-xl md:text-2xl font-bold text-[#234E94] font-headline mb-3 text-center transition-all duration-500">
                       {currentSystem.title}
                     </span>
-                    {/* Progress Line */}
-                    <div className="w-20 md:w-32 h-1.5 bg-muted rounded-full overflow-hidden">
+                    {/* Progress Bar Container */}
+                    <div className="w-32 md:w-48 h-1.5 bg-slate-200 rounded-full overflow-hidden">
                       <div 
-                        className="h-full bg-primary transition-all duration-75 linear"
+                        className="h-full bg-[#234E94] transition-all duration-75 linear"
                         style={{ width: `${progress}%` }}
                       />
                     </div>
                   </div>
 
-                  {/* Right Icon Box */}
-                  <div className="w-14 h-14 md:w-16 md:h-16 bg-primary rounded-2xl flex items-center justify-center text-white shadow-lg shadow-primary/30 group-hover:rotate-6 transition-all">
+                  {/* Right: Dynamic Icon */}
+                  <div className="w-14 h-14 md:w-16 md:h-16 bg-[#234E94] rounded-2xl flex items-center justify-center text-white shadow-lg shadow-primary/20">
                     <currentSystem.icon className="w-8 h-8 md:w-10 md:h-10" />
                   </div>
-                </div>
-              </div>
+               </div>
             </div>
+
           </div>
         </div>
       </div>
     </section>
   );
 }
+
