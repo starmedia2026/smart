@@ -10,7 +10,7 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
  */
 
 export function Partnerships() {
-  // معرفات الصور المحددة من قبل المستخدم
+  // معرفات الصور المحددة في ملف placeholder-images.json
   const partnerIds = [
     'partner-alwadi', 
     'partner-adn', 
@@ -19,8 +19,8 @@ export function Partnerships() {
     'partner-saa'
   ];
   
-  // تكرار المصفوفة لضمان حركة مستمرة وسلسة في الشريط
-  const extendedPartners = [...partnerIds, ...partnerIds, ...partnerIds, ...partnerIds];
+  // تكرار المصفوفة لضمان حركة مستمرة وسلسة في الشريط تغطي عرض الشاشة بالكامل
+  const extendedPartners = [...partnerIds, ...partnerIds, ...partnerIds, ...partnerIds, ...partnerIds];
 
   return (
     <section id="partners" className="py-24 bg-background overflow-hidden">
@@ -37,24 +37,26 @@ export function Partnerships() {
       </div>
 
       {/* شريط الماركي المتحرك */}
-      <div className="relative flex overflow-hidden">
+      <div className="relative flex overflow-hidden group">
         <div className="flex animate-marquee gap-8 whitespace-nowrap px-4 py-4">
           {extendedPartners.map((id, idx) => {
             const img = PlaceHolderImages.find(p => p.id === id);
+            
+            // إذا لم تتوفر الصورة، لا نعرض البطاقة لتجنب المساحات الفارغة
+            if (!img) return null;
+
             return (
               <div 
                 key={`${id}-${idx}`} 
-                className="bg-white min-w-[200px] md:min-w-[240px] h-[140px] md:h-[160px] rounded-3xl p-8 flex items-center justify-center shadow-[0_10px_30px_rgba(0,0,0,0.04)] border border-slate-50 hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] transition-all duration-500 group relative shrink-0"
+                className="bg-white min-w-[200px] md:min-w-[240px] h-[140px] md:h-[160px] rounded-3xl p-8 flex items-center justify-center shadow-[0_10px_30px_rgba(0,0,0,0.04)] border border-slate-50 hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] transition-all duration-500 relative shrink-0"
               >
-                <div className="relative w-full h-full grayscale group-hover:grayscale-0 transition-all duration-700 transform group-hover:scale-105">
-                  {img && (
-                    <Image 
-                      src={img.imageUrl} 
-                      alt={img.description} 
-                      fill 
-                      className="object-contain"
-                    />
-                  )}
+                <div className="relative w-full h-full group-hover:scale-105 transition-transform duration-500">
+                  <Image 
+                    src={img.imageUrl} 
+                    alt={img.description} 
+                    fill 
+                    className="object-contain"
+                  />
                 </div>
               </div>
             );
@@ -69,7 +71,11 @@ export function Partnerships() {
         }
         .animate-marquee {
           display: flex;
-          animation: marquee 40s linear infinite;
+          animation: marquee 30s linear infinite;
+        }
+        /* توقف الحركة عند التمرير لمشاهدة الشعارات بوضوح */
+        .group:hover .animate-marquee {
+          animation-play-state: paused;
         }
       `}</style>
     </section>
