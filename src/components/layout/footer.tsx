@@ -1,3 +1,4 @@
+
 import Link from 'next/link';
 import Image from 'next/image';
 import { Mail, Phone, Heart } from 'lucide-react';
@@ -5,6 +6,7 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export function Footer() {
   const logo = PlaceHolderImages.find(img => img.id === 'app-logo');
+  const vatLogo = PlaceHolderImages.find(img => img.id === 'vat-logo');
 
   return (
     <footer className="bg-gradient-to-b from-primary to-accent pt-20 pb-10 relative overflow-hidden text-white">
@@ -36,6 +38,24 @@ export function Footer() {
             <p className="text-white/90 leading-relaxed mb-6">
               نبتكر حلولاً برمجية متطورة تدمج بين الإبداع والتقنية لتحقيق أهدافك التجارية وضمان نمو مستدام.
             </p>
+
+            {/* VAT Section */}
+            <div className="mt-8 bg-white/5 backdrop-blur-sm border border-white/10 p-4 rounded-2xl inline-flex items-center gap-4 shadow-lg group hover:bg-white/10 transition-all duration-300">
+              <div className="flex flex-col items-end">
+                <span className="text-xs font-bold text-white/70">الرقم الضريبي</span>
+                <span dir="ltr" className="text-lg font-bold tracking-wider text-white">302070513600003</span>
+              </div>
+              {vatLogo && (
+                <div className="relative w-16 h-16 rounded-lg overflow-hidden bg-white p-1">
+                  <Image 
+                    src={vatLogo.imageUrl} 
+                    alt="الرقم الضريبي" 
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+              )}
+            </div>
           </div>
 
           <div>

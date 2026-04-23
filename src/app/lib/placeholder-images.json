@@ -48,6 +48,12 @@
       "description": "واجهة نظام الخدمة الميدانية الذكي",
       "imageUrl": "https://picsum.photos/seed/66/1200/800",
       "imageHint": "software dashboard"
+    },
+    {
+      "id": "vat-logo",
+      "description": "شعار ضريبة القيمة المضافة",
+      "imageUrl": "/vat.jpg",
+      "imageHint": "vat tax logo"
     }
   ]
 }
