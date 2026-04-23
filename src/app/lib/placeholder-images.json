@@ -42,6 +42,12 @@
       "description": "شعار سع",
       "imageUrl": "/saa.jpg",
       "imageHint": "partner logo"
+    },
+    {
+      "id": "field-service-mockup",
+      "description": "واجهة نظام الخدمة الميدانية الذكي",
+      "imageUrl": "https://picsum.photos/seed/66/1200/800",
+      "imageHint": "software dashboard"
     }
   ]
 }

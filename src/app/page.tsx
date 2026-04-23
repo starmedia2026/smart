@@ -6,6 +6,7 @@ import { Story } from '@/components/sections/story';
 import { VisionMission } from '@/components/sections/vision';
 import { Services } from '@/components/sections/services';
 import { Products } from '@/components/sections/products';
+import { FieldServiceSection } from '@/components/sections/field-service';
 import { CTAFinal } from '@/components/sections/cta-final';
 import { Partnerships } from '@/components/sections/partnerships';
 import { Footer } from '@/components/layout/footer';
@@ -21,6 +22,7 @@ export default function Home() {
         <VisionMission />
         <Services />
         <Products />
+        <FieldServiceSection />
         <CTAFinal />
         <Partnerships />
       </main>
