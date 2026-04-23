@@ -39,7 +39,7 @@ export function Footer() {
               نبتكر حلولاً برمجية متطورة تدمج بين الإبداع والتقنية لتحقيق أهدافك التجارية وضمان نمو مستدام.
             </p>
 
-            {/* VAT Section - Updated Order and Alignment */}
+            {/* VAT Section - Updated Order: Logo on the right (first in RTL) */}
             <div className="mt-8 bg-white/5 backdrop-blur-sm border border-white/10 p-4 rounded-2xl inline-flex items-center gap-4 shadow-lg group hover:bg-white/10 transition-all duration-300">
               {vatLogo && (
                 <div className="relative w-16 h-16 rounded-lg overflow-hidden bg-white p-1 shrink-0">
@@ -51,7 +51,7 @@ export function Footer() {
                   />
                 </div>
               )}
-              <div className="flex flex-col items-start">
+              <div className="flex flex-col items-start text-right">
                 <span className="text-xs font-bold text-white/70">الرقم الضريبي</span>
                 <span dir="ltr" className="text-lg font-bold tracking-wider text-white">302070513600003</span>
               </div>
@@ -100,7 +100,6 @@ export function Footer() {
             صنع بكل <Heart className="w-4 h-4 text-white fill-white animate-pulse" /> بواسطة فريق شانان سمارت © 2026
           </p>
           <div className="flex items-center gap-6">
-            {/* Social icons could go here */}
           </div>
         </div>
       </div>
