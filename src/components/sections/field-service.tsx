@@ -118,10 +118,15 @@ const AUTOPLAY_INTERVAL = 6000;
 export function FieldServiceSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [progress, setProgress] = useState(0);
+  const [isChanging, setIsChanging] = useState(false);
 
   const nextSlide = useCallback(() => {
-    setCurrentIndex((prev) => (prev + 1) % systems.length);
-    setProgress(0);
+    setIsChanging(true);
+    setTimeout(() => {
+      setCurrentIndex((prev) => (prev + 1) % systems.length);
+      setProgress(0);
+      setIsChanging(false);
+    }, 500); // Wait for fade out
   }, []);
 
   useEffect(() => {
@@ -147,22 +152,20 @@ export function FieldServiceSection() {
       <div className="container mx-auto px-6">
         <div className="flex flex-col items-center">
           
-          {/* Main Card Container */}
           <div className="w-full max-w-4xl bg-white rounded-[3rem] shadow-[0_30px_80px_-15px_rgba(0,0,0,0.1)] border border-border/40 overflow-hidden flex flex-col">
             
-            {/* Top Content: System Details (Matching the Image Style) */}
-            <div className="p-8 md:p-14 text-right flex flex-col items-center md:items-start">
-              {/* Featured Badge */}
+            <div className={cn(
+              "p-8 md:p-14 text-right flex flex-col items-center md:items-start transition-all duration-500",
+              isChanging ? "opacity-0 translate-y-4" : "opacity-100 translate-y-0"
+            )}>
               <div className="inline-flex items-center px-6 py-1 rounded-full bg-[#E0F7F9] text-[#2DD4BF] text-sm font-bold mb-8">
                 منتج مميز
               </div>
               
-              {/* System Title */}
               <h2 className="text-4xl md:text-5xl font-bold font-headline mb-10 text-[#1E3A8A]">
                 {currentSystem.title}
               </h2>
 
-              {/* Feature List */}
               <div className="space-y-6 mb-12 w-full max-w-lg">
                 {currentSystem.features.map((feature, idx) => (
                   <div key={idx} className="flex items-center justify-start gap-4 group">
@@ -175,8 +178,7 @@ export function FieldServiceSection() {
                 ))}
               </div>
 
-              {/* Action Button */}
-              <Button asChild className="bg-[#234E94] hover:bg-[#1E3A8A] text-white px-12 py-8 text-xl rounded-2xl shadow-xl shadow-primary/20 transition-all active:scale-95 h-auto border-none mb-14 self-center md:self-start">
+              <Button asChild className="bg-[#234E94] hover:bg-[#1E3A8A] text-white px-8 py-6 text-lg rounded-xl shadow-lg shadow-primary/10 transition-all active:scale-95 h-auto border-none mb-8 self-center md:self-start">
                 <a 
                   href="https://wa.me/966531813787" 
                   target="_blank" 
@@ -187,33 +189,34 @@ export function FieldServiceSection() {
               </Button>
             </div>
 
-            {/* Showcase Image Area */}
             <div className="relative aspect-[16/9] w-full bg-slate-100 overflow-hidden px-8 md:px-16 pb-8">
-              <div className="relative w-full h-full rounded-[2.5rem] overflow-hidden shadow-2xl border border-white/20">
+              <div className={cn(
+                "relative w-full h-full rounded-[2.5rem] overflow-hidden shadow-2xl border border-white/20 transition-all duration-700 transform",
+                isChanging ? "opacity-0 scale-105" : "opacity-100 scale-100"
+              )}>
                 <Image 
                   src={currentSystem.image}
                   alt={currentSystem.title}
                   fill
-                  className="object-cover transition-all duration-1000"
+                  className="object-cover"
                   data-ai-hint={currentSystem.hint}
                 />
               </div>
             </div>
 
-            {/* Navigation & Progress Bar (The Bar below the button area) */}
             <div className="bg-white border-t border-border/40 p-6 md:p-10">
                <div className="w-full border-2 border-[#234E94]/10 rounded-[2.5rem] p-5 flex items-center justify-between bg-slate-50/50">
-                  {/* Left: Indicator Arrow */}
                   <div className="w-12 h-12 flex items-center justify-center text-[#234E94] opacity-40">
                     <ChevronLeft className="w-8 h-8" />
                   </div>
 
-                  {/* Center: System Name & Progress Line */}
                   <div className="flex flex-col items-center flex-1">
-                    <span className="text-xl md:text-2xl font-bold text-[#234E94] font-headline mb-3 text-center transition-all duration-500">
+                    <span className={cn(
+                      "text-xl md:text-2xl font-bold text-[#234E94] font-headline mb-3 text-center transition-all duration-500",
+                      isChanging ? "opacity-30 scale-95" : "opacity-100 scale-100"
+                    )}>
                       {currentSystem.title}
                     </span>
-                    {/* Progress Bar Container */}
                     <div className="w-32 md:w-48 h-1.5 bg-slate-200 rounded-full overflow-hidden">
                       <div 
                         className="h-full bg-[#234E94] transition-all duration-75 linear"
@@ -222,8 +225,10 @@ export function FieldServiceSection() {
                     </div>
                   </div>
 
-                  {/* Right: Dynamic Icon */}
-                  <div className="w-14 h-14 md:w-16 md:h-16 bg-[#234E94] rounded-2xl flex items-center justify-center text-white shadow-lg shadow-primary/20">
+                  <div className={cn(
+                    "w-14 h-14 md:w-16 md:h-16 bg-[#234E94] rounded-2xl flex items-center justify-center text-white shadow-lg shadow-primary/20 transition-all duration-500",
+                    isChanging ? "rotate-180 scale-75 opacity-50" : "rotate-0 scale-100 opacity-100"
+                  )}>
                     <currentSystem.icon className="w-8 h-8 md:w-10 md:h-10" />
                   </div>
                </div>
@@ -235,4 +240,3 @@ export function FieldServiceSection() {
     </section>
   );
 }
-
