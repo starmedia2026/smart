@@ -32,8 +32,8 @@ interface System {
 const systems: System[] = [
   { 
     id: 'financial', 
-    title: "نظام نمو المالي", 
-    image: "/vat.jpg", 
+    title: "نظام شانان المالي", 
+    image: "/shanana.jpeg", 
     icon: BarChart3,
     hint: "financial dashboard",
     features: [
@@ -47,7 +47,7 @@ const systems: System[] = [
   { 
     id: 'hr', 
     title: "نظام الموارد البشرية", 
-    image: "/vat.jpg", 
+    image: "/mawrd.jpeg", 
     icon: Users,
     hint: "hr management",
     features: [
@@ -61,7 +61,7 @@ const systems: System[] = [
   { 
     id: 'realestate', 
     title: "النظام العقاري", 
-    image: "/vat.jpg", 
+    image: "/agar.jpeg", 
     icon: Building2,
     hint: "real estate software",
     features: [
@@ -75,7 +75,7 @@ const systems: System[] = [
   { 
     id: 'legal', 
     title: "نظام المحاماة", 
-    image: "/vat.jpg",
+    image: "/maham.png",
     icon: Gavel,
     hint: "legal platform",
     features: [
@@ -89,7 +89,7 @@ const systems: System[] = [
   { 
     id: 'manufacturing', 
     title: "نظام التصنيع", 
-    image: "/vat.jpg", 
+    image: "/tsnea.png", 
     icon: Factory,
     hint: "factory automation",
     features: [
@@ -103,7 +103,7 @@ const systems: System[] = [
   { 
     id: 'fieldservice', 
     title: "نظام الخدمة الميدانية", 
-    image: "/field.jpg", 
+    image: "/maham.png", 
     icon: Truck,
     hint: "field operations",
     features: [
@@ -117,7 +117,7 @@ const systems: System[] = [
   { 
     id: 'cloud', 
     title: "نظام الحوسبة السحابية", 
-    image: "/cloud.jpg", 
+    image: "/shap.jpeg", 
     icon: Cloud,
     hint: "cloud infrastructure",
     features: [
@@ -131,7 +131,7 @@ const systems: System[] = [
   { 
     id: 'networking', 
     title: "نظام الشبكات", 
-    image: "/network.jpg", 
+    image: "/shbket.jpg", 
     icon: Network,
     hint: "networking infrastructure",
     features: [
@@ -145,7 +145,7 @@ const systems: System[] = [
   { 
     id: 'cybersecurity', 
     title: "نظام الأمن السيبراني", 
-    image: "/cyber.jpg", 
+    image: "/amn.jpeg", 
     icon: ShieldAlert,
     hint: "cyber security",
     features: [
@@ -167,11 +167,12 @@ export function FieldServiceSection() {
 
   const nextSlide = useCallback(() => {
     setIsChanging(true);
+    // تقليل وقت الانتظار ليصبح الانتقال أسرع (300 ملي ثانية بدلاً من 600)
     setTimeout(() => {
       setCurrentIndex((prev) => (prev + 1) % systems.length);
       setProgress(0);
       setIsChanging(false);
-    }, 600);
+    }, 300);
   }, []);
 
   useEffect(() => {
@@ -200,8 +201,8 @@ export function FieldServiceSection() {
           <div className="w-full max-w-4xl bg-card rounded-[3rem] shadow-2xl border border-border/40 overflow-hidden flex flex-col">
             
             <div className={cn(
-              "p-8 md:p-12 text-right flex flex-col items-center md:items-start transition-all duration-700 ease-in-out",
-              isChanging ? "opacity-0 translate-y-8 blur-sm scale-95" : "opacity-100 translate-y-0 blur-0 scale-100"
+              "p-8 md:p-12 text-right flex flex-col items-center md:items-start transition-all duration-300 ease-out",
+              isChanging ? "opacity-0 -translate-x-4 blur-sm" : "opacity-100 translate-x-0 blur-0"
             )}>
               <div className="inline-flex items-center px-4 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold mb-6">
                 <span className="w-2 h-2 rounded-full bg-primary animate-pulse ml-2" />
@@ -234,8 +235,8 @@ export function FieldServiceSection() {
 
             <div className="relative aspect-[16/9] w-full bg-muted/30 overflow-hidden px-6 md:px-12 pb-8">
               <div className={cn(
-                "relative w-full h-full rounded-[2rem] overflow-hidden shadow-2xl border border-white/5 transition-all duration-1000 transform ease-in-out",
-                isChanging ? "opacity-0 scale-110 blur-md translate-x-10" : "opacity-100 scale-100 blur-0 translate-x-0"
+                "relative w-full h-full rounded-[2rem] overflow-hidden shadow-2xl border border-white/5 transition-all duration-300 transform ease-out",
+                isChanging ? "opacity-0 scale-95 blur-sm" : "opacity-100 scale-100 blur-0"
               )}>
                 <Image 
                   src={currentSystem.image}
@@ -243,6 +244,7 @@ export function FieldServiceSection() {
                   fill
                   className="object-cover"
                   data-ai-hint={currentSystem.hint}
+                  priority
                 />
               </div>
             </div>
@@ -255,8 +257,8 @@ export function FieldServiceSection() {
 
                   <div className="flex flex-col items-center flex-1">
                     <span className={cn(
-                      "text-lg md:text-xl font-bold text-primary font-headline mb-2 text-center transition-all duration-700 ease-in-out",
-                      isChanging ? "opacity-0 -translate-x-10 blur-sm" : "opacity-100 translate-x-0 blur-0"
+                      "text-lg md:text-xl font-bold text-primary font-headline mb-2 text-center transition-all duration-300 ease-out",
+                      isChanging ? "opacity-0 scale-90" : "opacity-100 scale-100"
                     )}>
                       {currentSystem.title}
                     </span>
@@ -269,8 +271,8 @@ export function FieldServiceSection() {
                   </div>
 
                   <div className={cn(
-                    "w-12 h-12 md:w-14 md:h-14 bg-primary rounded-2xl flex items-center justify-center text-white shadow-lg transition-all duration-700 ease-in-out",
-                    isChanging ? "rotate-180 scale-75 opacity-0 blur-sm" : "rotate-0 scale-100 opacity-100 blur-0"
+                    "w-12 h-12 md:w-14 md:h-14 bg-primary rounded-2xl flex items-center justify-center text-white shadow-lg transition-all duration-300 ease-out",
+                    isChanging ? "scale-50 opacity-0" : "scale-100 opacity-100"
                   )}>
                     <currentSystem.icon className="w-6 h-6 md:w-8 md:h-8" />
                   </div>
