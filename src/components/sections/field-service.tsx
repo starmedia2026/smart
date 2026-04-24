@@ -11,6 +11,9 @@ import {
   Gavel, 
   Factory, 
   Truck,
+  Cloud,
+  Network,
+  ShieldAlert,
   LucideIcon
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -30,7 +33,7 @@ const systems: System[] = [
   { 
     id: 'financial', 
     title: "نظام نمو المالي", 
-    image: "/fin.jpg", 
+    image: "/vat.jpg", 
     icon: BarChart3,
     hint: "financial dashboard",
     features: [
@@ -44,7 +47,7 @@ const systems: System[] = [
   { 
     id: 'hr', 
     title: "نظام الموارد البشرية", 
-    image: "/hr.jpg", 
+    image: "/vat.jpg", 
     icon: Users,
     hint: "hr management",
     features: [
@@ -58,7 +61,7 @@ const systems: System[] = [
   { 
     id: 'realestate', 
     title: "النظام العقاري", 
-    image: "/realestate.jpg", 
+    image: "/vat.jpg", 
     icon: Building2,
     hint: "real estate software",
     features: [
@@ -72,7 +75,7 @@ const systems: System[] = [
   { 
     id: 'legal', 
     title: "نظام المحاماة", 
-    image: "/legal.jpg",
+    image: "/vat.jpg",
     icon: Gavel,
     hint: "legal platform",
     features: [
@@ -86,7 +89,7 @@ const systems: System[] = [
   { 
     id: 'manufacturing', 
     title: "نظام التصنيع", 
-    image: "/mfg.jpg", 
+    image: "/vat.jpg", 
     icon: Factory,
     hint: "factory automation",
     features: [
@@ -109,6 +112,48 @@ const systems: System[] = [
       "تتبع الوقت والمواد المستخدمة",
       "إغلاق الطلبات بتوقيع العميل",
       "تتبع المركبات والفرق الميدانية"
+    ]
+  },
+  { 
+    id: 'cloud', 
+    title: "نظام الحوسبة السحابية", 
+    image: "/cloud.jpg", 
+    icon: Cloud,
+    hint: "cloud infrastructure",
+    features: [
+      "استضافة التطبيقات والأنظمة",
+      "تخزين سحابي للملفات والبيانات",
+      "قواعد بيانات سحابية",
+      "نسخ احتياطي واستعادة البيانات",
+      "إدارة السيرفرات عن بُعد"
+    ]
+  },
+  { 
+    id: 'networking', 
+    title: "نظام الشبكات", 
+    image: "/network.jpg", 
+    icon: Network,
+    hint: "networking infrastructure",
+    features: [
+      "تصميم وتنفيذ الشبكات (LAN / WAN)",
+      "تركيب أجهزة الشبكات (راوترات – سويتشات)",
+      "إعداد الشبكات اللاسلكية (Wi-Fi)",
+      "تأمين الشبكة بجدران حماية (Firewall)",
+      "صيانة ومراقبة الشبكة وربط الفروع"
+    ]
+  },
+  { 
+    id: 'cybersecurity', 
+    title: "نظام الأمن السيبراني", 
+    image: "/cyber.jpg", 
+    icon: ShieldAlert,
+    hint: "cyber security",
+    features: [
+      "تركيب وإدارة أنظمة الحماية المتطورة",
+      "اختبار الاختراق وتحليل الثغرات",
+      "تأمين الشبكات وإدارة الهوية والوصول",
+      "النسخ الاحتياطي الآمن واستعادة البيانات",
+      "التوعية الأمنية الشاملة للموظفين"
     ]
   },
 ];
@@ -160,7 +205,7 @@ export function FieldServiceSection() {
             )}>
               <div className="inline-flex items-center px-4 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold mb-6">
                 <span className="w-2 h-2 rounded-full bg-primary animate-pulse ml-2" />
-                منتج مميز
+                حلولنا الذكية
               </div>
               
               <h2 className="text-3xl md:text-5xl font-bold font-headline mb-8 text-foreground">
