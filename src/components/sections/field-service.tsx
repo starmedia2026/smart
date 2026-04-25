@@ -158,7 +158,7 @@ const systems: System[] = [
   },
 ];
 
-const AUTOPLAY_INTERVAL = 6000;
+const AUTOPLAY_INTERVAL = 5000;
 
 export function FieldServiceSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -167,11 +167,12 @@ export function FieldServiceSection() {
 
   const nextSlide = useCallback(() => {
     setIsChanging(true);
+    // تقليل وقت الانتقال ليكون أسرع
     setTimeout(() => {
       setCurrentIndex((prev) => (prev + 1) % systems.length);
       setProgress(0);
       setIsChanging(false);
-    }, 300);
+    }, 150); 
   }, []);
 
   useEffect(() => {
@@ -197,11 +198,11 @@ export function FieldServiceSection() {
       <div className="container mx-auto px-6">
         <div className="flex flex-col items-center">
           
-          <div className="w-full max-w-4xl bg-card rounded-[3rem] shadow-2xl border border-border/40 overflow-hidden flex flex-col">
+          <div className="w-full max-w-4xl bg-card/60 backdrop-blur-md rounded-[3rem] shadow-2xl border border-border/40 overflow-hidden flex flex-col">
             
             <div className={cn(
-              "p-8 md:p-12 text-right flex flex-col items-center md:items-start transition-all duration-300 ease-out",
-              isChanging ? "opacity-0 -translate-x-4 blur-sm" : "opacity-100 translate-x-0 blur-0"
+              "p-8 md:p-12 text-right flex flex-col items-center md:items-start transition-all duration-200 ease-out",
+              isChanging ? "opacity-0 translate-x-4 blur-sm" : "opacity-100 translate-x-0 blur-0"
             )}>
               <div className="inline-flex items-center px-4 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold mb-6">
                 <span className="w-2 h-2 rounded-full bg-primary animate-pulse ml-2" />
@@ -221,31 +222,36 @@ export function FieldServiceSection() {
                 ))}
               </div>
 
-              <Button asChild size="sm" className="bg-primary hover:bg-primary/90 text-white px-6 py-2.5 text-sm rounded-xl shadow-lg transition-all active:scale-95 h-auto border-none mb-4 self-center md:self-start">
-                <a 
-                  href="https://wa.me/966531813787" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                >
+              <Button asChild size="sm" className="bg-primary hover:bg-primary/90 text-white px-8 py-3 text-sm rounded-xl shadow-lg transition-all active:scale-95 h-auto border-none mb-4 self-center md:self-start">
+                <a href="https://wa.me/966531813787" target="_blank" rel="noopener noreferrer">
                   طلب عرض سعر
                 </a>
               </Button>
             </div>
 
-            <div className="relative aspect-[16/9] w-full bg-muted/30 overflow-hidden px-6 md:px-12 pb-8">
-              <div className={cn(
-                "relative w-full h-full rounded-[2rem] overflow-hidden shadow-2xl border border-white/5 transition-all duration-300 transform ease-out",
-                isChanging ? "opacity-0 scale-95 blur-sm" : "opacity-100 scale-100 blur-0"
-              )}>
-                <Image 
-                  src={currentSystem.image}
-                  alt={currentSystem.title}
-                  fill
-                  className="object-cover"
-                  data-ai-hint={currentSystem.hint}
-                  priority
-                />
-              </div>
+            <div className="relative w-full h-[400px] md:h-[500px] overflow-hidden">
+              {systems.map((system, index) => {
+                const active = index === currentIndex;
+                return (
+                  <div
+                    key={system.id}
+                    className={cn(
+                      "absolute inset-0 transition-all duration-300 ease-in-out",
+                      active
+                        ? "opacity-100 scale-100 z-20"
+                        : "opacity-0 scale-105 z-0"
+                    )}
+                  >
+                    <Image
+                      src={system.image}
+                      alt={system.title}
+                      fill
+                      className="object-cover"
+                      priority={active}
+                    />
+                  </div>
+                );
+              })}
             </div>
 
             <div className="bg-card border-t border-border/40 p-6 md:p-8">
@@ -256,8 +262,8 @@ export function FieldServiceSection() {
 
                   <div className="flex flex-col items-center flex-1">
                     <span className={cn(
-                      "text-lg md:text-xl font-bold text-primary font-headline mb-2 text-center transition-all duration-300 ease-out",
-                      isChanging ? "opacity-0 scale-90" : "opacity-100 scale-100"
+                      "text-lg md:text-xl font-bold text-primary font-headline mb-2 text-center transition-all duration-200",
+                      isChanging ? "opacity-0 scale-95" : "opacity-100 scale-100"
                     )}>
                       {currentSystem.title}
                     </span>
@@ -270,8 +276,8 @@ export function FieldServiceSection() {
                   </div>
 
                   <div className={cn(
-                    "w-12 h-12 md:w-14 md:h-14 bg-primary rounded-2xl flex items-center justify-center text-white shadow-lg transition-all duration-300 ease-out",
-                    isChanging ? "scale-50 opacity-0" : "scale-100 opacity-100"
+                    "w-12 h-12 md:w-14 md:h-14 bg-primary rounded-2xl flex items-center justify-center text-white shadow-lg transition-all duration-200",
+                    isChanging ? "scale-75 opacity-0" : "scale-100 opacity-100"
                   )}>
                     <currentSystem.icon className="w-6 h-6 md:w-8 md:h-8" />
                   </div>
