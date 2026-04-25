@@ -131,7 +131,7 @@ const systems: System[] = [
   { 
     id: 'networking', 
     title: "نظام الشبكات", 
-    image: "/shbket.jpg", 
+    image: "/shbket.jpeg", 
     icon: Network,
     hint: "networking infrastructure",
     features: [
@@ -167,7 +167,6 @@ export function FieldServiceSection() {
 
   const nextSlide = useCallback(() => {
     setIsChanging(true);
-    // تقليل وقت الانتظار ليصبح الانتقال أسرع (300 ملي ثانية بدلاً من 600)
     setTimeout(() => {
       setCurrentIndex((prev) => (prev + 1) % systems.length);
       setProgress(0);
@@ -194,7 +193,7 @@ export function FieldServiceSection() {
   const currentSystem = systems[currentIndex];
 
   return (
-    <section className="py-24 bg-background relative overflow-hidden">
+    <section className="py-24 bg-transparent relative overflow-hidden">
       <div className="container mx-auto px-6">
         <div className="flex flex-col items-center">
           

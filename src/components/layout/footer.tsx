@@ -76,12 +76,16 @@ export function Footer() {
   {/* المحتوى يسار */}
   <ul className="space-y-4 text-left">
 
-    <li className="flex items-center justify-start gap-3 text-white/90 group">
-      <Mail className="w-5 h-5 text-white/70 group-hover:text-white transition-colors" />
-      <a href="mailto:shanansmart1@gmail.com" className="hover:text-white transition-colors">
-        shanansmart1@gmail.com
-      </a>
-    </li>
+  <li className="flex items-center gap-3 text-white">
+  <Mail className="w-5 h-5 text-white/80" />
+  <a 
+    href="mailto:shanansmart2@gmail.com"
+    dir="ltr"
+    className="text-white"
+  >
+    shanansmart2@gmail.com
+  </a>
+</li>
 
     <li className="flex items-center justify-start gap-3 text-white/90 group">
       <Phone className="w-5 h-5 text-white/70 group-hover:text-white transition-colors" />

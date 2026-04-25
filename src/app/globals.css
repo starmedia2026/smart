@@ -25,28 +25,32 @@
     --input: 252 14% 90%;
     --ring: 255 76% 60%;
     --radius: 0.75rem;
+    --bg-gradient: none;
   }
 
   .dark {
-    --background: 260 45% 4%;
-    --foreground: 0 0% 98%;
-    --card: 260 40% 7%;
-    --card-foreground: 0 0% 98%;
-    --popover: 260 45% 4%;
-    --popover-foreground: 0 0% 98%;
+    --background: 240 50% 3.5%;
+    --foreground: 0 0% 100%;
+    --card: 240 50% 6%;
+    --card-foreground: 0 0% 100%;
+    --popover: 240 50% 4%;
+    --popover-foreground: 0 0% 100%;
     --primary: 255 76% 60%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 225 89% 70%;
-    --secondary-foreground: 260 45% 4%;
-    --muted: 260 30% 12%;
-    --muted-foreground: 260 10% 70%;
-    --accent: 225 89% 70%;
-    --accent-foreground: 260 45% 4%;
+    --secondary: 225 89% 65%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 240 40% 10%;
+    --muted-foreground: 240 10% 80%;
+    --accent: 225 89% 65%;
+    --accent-foreground: 0 0% 100%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 260 30% 15%;
-    --input: 260 30% 15%;
+    --border: 240 30% 15%;
+    --input: 240 30% 15%;
     --ring: 255 76% 60%;
+    --bg-gradient: radial-gradient(circle at 50% -20%, hsl(255 76% 15% / 0.4), transparent), 
+                   radial-gradient(circle at 0% 100%, hsl(225 89% 10% / 0.4), transparent),
+                   linear-gradient(to bottom, hsl(240 50% 3.5%), hsl(240 50% 5%));
   }
 }
 
@@ -55,8 +59,10 @@
     @apply border-border;
   }
   body {
-    @apply antialiased transition-colors duration-300 overflow-x-hidden;
+    @apply antialiased transition-colors duration-500 overflow-x-hidden min-h-screen;
     background-color: hsl(var(--background));
+    background-image: var(--bg-gradient);
+    background-attachment: fixed;
     color: hsl(var(--foreground));
   }
 }
@@ -66,7 +72,7 @@
     @apply bg-background/60 backdrop-blur-lg border border-white/5;
   }
   .glass-card {
-    @apply bg-card/40 backdrop-blur-md border border-white/5 hover:border-primary/50 transition-all duration-300;
+    @apply bg-card/40 backdrop-blur-md border border-white/5 hover:border-primary/50 transition-all duration-300 shadow-xl;
   }
   .text-gradient {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent;
