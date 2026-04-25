@@ -1,3 +1,4 @@
+
 import { Button } from '@/components/ui/button';
 import { 
   FileSearch, 
@@ -49,7 +50,7 @@ export function Services() {
   ];
 
   return (
-    <section id="services" className="py-24 bg-white/[0.01]">
+    <section id="services" className="py-24 bg-transparent">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold font-headline mb-4 text-foreground">خدماتنا المتميزة</h2>

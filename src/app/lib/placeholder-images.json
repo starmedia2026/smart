@@ -3,8 +3,8 @@
   "placeholderImages": [
     {
       "id": "app-logo",
-      "description": "شعار شانان سمارت الرسمي",
-      "imageUrl": "https://i.postimg.cc/d1QJHGHy/IMG-20260401-WA0004.jpg",
+      "description": "شعار شانان سمارت الرسمي الجديد",
+      "imageUrl": "/logo.jpg",
       "imageHint": "logo brand"
     },
     {
@@ -12,6 +12,42 @@
       "description": "صورة برمجية توضيحية لقصة نجاح الشركة",
       "imageUrl": "https://i.postimg.cc/02zFjqcw/programming.jpg",
       "imageHint": "programming coding"
+    },
+    {
+      "id": "partner-alwadi",
+      "description": "شعار الوادي",
+      "imageUrl": "/alwadi.jpg",
+      "imageHint": "partner logo"
+    },
+    {
+      "id": "partner-adn",
+      "description": "شعار عدن",
+      "imageUrl": "/adn.jpg",
+      "imageHint": "partner logo"
+    },
+    {
+      "id": "partner-star",
+      "description": "شعار ستار",
+      "imageUrl": "/star.jpg",
+      "imageHint": "partner logo"
+    },
+    {
+      "id": "partner-asala",
+      "description": "شعار أصالة",
+      "imageUrl": "/asala.jpg",
+      "imageHint": "partner logo"
+    },
+    {
+      "id": "partner-saa",
+      "description": "شعار سع",
+      "imageUrl": "/saa.jpg",
+      "imageHint": "partner logo"
+    },
+    {
+      "id": "vat-logo",
+      "description": "شعار ضريبة القيمة المضافة",
+      "imageUrl": "/vat.jpg",
+      "imageHint": "vat tax logo"
     }
   ]
 }

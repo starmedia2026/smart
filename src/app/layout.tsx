@@ -1,4 +1,3 @@
-
 import type {Metadata} from 'next';
 import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
@@ -14,17 +13,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ar" dir="rtl" className="dark">
+    <html lang="ar" dir="rtl">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
         
         {/* Favicons */}
-        <link rel="shortcut icon" href="https://i.postimg.cc/d1QJHGHy/IMG-20260401-WA0004.jpg" />
-        <link rel="icon" type="image/jpeg" sizes="32x32" href="https://i.postimg.cc/d1QJHGHy/IMG-20260401-WA0004.jpg" />
-        <link rel="icon" type="image/jpeg" sizes="16x16" href="https://i.postimg.cc/d1QJHGHy/IMG-20260401-WA0004.jpg" />
-        <link rel="apple-touch-icon" sizes="180x180" href="https://i.postimg.cc/d1QJHGHy/IMG-20260401-WA0004.jpg" />
+        <link rel="shortcut icon" href="/logo.jpg" />
+        <link rel="icon" type="image/jpeg" sizes="32x32" href="/logo.jpg" />
+        <link rel="icon" type="image/jpeg" sizes="16x16" href="/logo.jpg" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/logo.jpg" />
       </head>
       <body className="font-body antialiased bg-background text-foreground selection:bg-primary selection:text-primary-foreground">
         {children}

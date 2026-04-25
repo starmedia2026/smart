@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/dialog";
 
 export function Navbar() {
-  const [theme, setTheme] = useState<'light' | 'dark'>('dark');
+  const [theme, setTheme] = useState<'light' | 'dark'>('light');
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const logo = PlaceHolderImages.find(img => img.id === 'app-logo');
@@ -26,7 +26,9 @@ export function Navbar() {
       setTheme(savedTheme);
       document.documentElement.classList.toggle('dark', savedTheme === 'dark');
     } else {
-      document.documentElement.classList.add('dark');
+      // Default is light, no class 'dark' added
+      setTheme('light');
+      document.documentElement.classList.remove('dark');
     }
 
     const handleScroll = () => {
@@ -54,14 +56,14 @@ export function Navbar() {
     <nav className={cn(
       "fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full",
       isScrolled 
-        ? "bg-background/80 backdrop-blur-md shadow-lg py-3 border-b border-white/10" 
-        : "bg-transparent py-5"
+        ? "bg-background/80 backdrop-blur-md shadow-lg py-2 border-b border-border/50" 
+        : "bg-transparent py-4"
     )}>
       <div className="container mx-auto px-6 flex items-center justify-between">
         {/* Right Side: Name & Logo */}
-        <Link href="/" className="flex items-center gap-4 group shrink-0">
+        <Link href="/" className="flex items-center gap-3 group shrink-0">
           {logo && (
-            <div className="relative w-12 h-12 rounded-2xl overflow-hidden border border-white/10 bg-white/5 shadow-xl group-hover:scale-105 transition-transform">
+            <div className="relative w-10 h-10 rounded-xl overflow-hidden border border-border bg-card shadow-sm group-hover:scale-105 transition-transform">
               <Image 
                 src={logo.imageUrl} 
                 alt="Logo" 
@@ -71,18 +73,18 @@ export function Navbar() {
             </div>
           )}
           <div className="flex flex-col items-start">
-            <span className="text-xl md:text-2xl font-bold font-headline leading-tight tracking-tight text-foreground">شانان سمارت</span>
-            <span className="text-[10px] font-medium opacity-60 uppercase tracking-widest text-primary">SHANAN SMART</span>
+            <span className="text-lg md:text-xl font-bold font-headline leading-tight tracking-tight text-foreground">شانان سمارت</span>
+            <span className="text-[9px] font-medium opacity-60 uppercase tracking-widest text-primary">SHANAN SMART</span>
           </div>
         </Link>
 
         {/* Center: Desktop Navigation Links */}
-        <div className="hidden md:flex items-center gap-10">
+        <div className="hidden md:flex items-center gap-8">
           {menuLinks.map((link, idx) => (
             <Link 
               key={idx} 
               href={link.href}
-              className="text-[1.05rem] font-bold text-foreground/80 hover:text-primary transition-all font-headline relative group py-1"
+              className="text-[0.95rem] font-bold text-foreground/80 hover:text-primary transition-all font-headline relative group py-1"
             >
               {link.title}
               <span className="absolute -bottom-1 right-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
@@ -91,12 +93,12 @@ export function Navbar() {
         </div>
 
         {/* Left Side: Theme Toggle + Mobile Menu Trigger */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2">
           <Button 
             variant="ghost" 
             size="icon" 
             onClick={toggleTheme}
-            className="w-12 h-12 rounded-2xl hover:bg-primary/10 text-foreground transition-colors"
+            className="w-10 h-10 rounded-xl hover:bg-primary/10 text-foreground transition-colors"
           >
             {theme === 'dark' ? <Moon className="w-5 h-5" /> : <Sun className="w-5 h-5" />}
           </Button>
@@ -108,28 +110,28 @@ export function Navbar() {
                 <Button 
                   variant="ghost" 
                   size="icon" 
-                  className="w-12 h-12 rounded-2xl bg-primary/10 hover:bg-primary/20 text-primary border border-primary/20 transition-all shadow-lg shadow-primary/5"
+                  className="w-10 h-10 rounded-xl bg-primary/10 hover:bg-primary/20 text-primary border border-primary/20 transition-all"
                 >
-                  <Menu className="w-7 h-7" />
+                  <Menu className="w-6 h-6" />
                 </Button>
               </DialogTrigger>
-              <DialogContent className="fixed left-[50%] top-[50%] z-50 translate-x-[-50%] translate-y-[-50%] w-[90%] max-w-[320px] bg-black/90 backdrop-blur-3xl border border-white/10 rounded-[2.5rem] p-8 flex flex-col items-center justify-center shadow-[0_0_80px_-20px_rgba(0,0,0,0.8)] animate-in zoom-in-95 duration-300 outline-none">
+              <DialogContent className="fixed left-[50%] top-[50%] z-50 translate-x-[-50%] translate-y-[-50%] w-[90%] max-w-[320px] bg-background/95 backdrop-blur-xl border border-border rounded-[2rem] p-8 flex flex-col items-center justify-center shadow-2xl animate-in zoom-in-95 duration-300 outline-none">
                 <div className="sr-only">
                   <DialogTitle>القائمة الرئيسية</DialogTitle>
                 </div>
                 
-                <div className="flex flex-col gap-6 w-full">
+                <div className="flex flex-col gap-4 w-full">
                   {menuLinks.map((link, idx) => (
                     <Link 
                       key={idx} 
                       href={link.href} 
                       onClick={() => setIsOpen(false)}
-                      className="flex items-center gap-5 group transition-all w-full"
+                      className="flex items-center gap-4 group transition-all w-full p-3 rounded-2xl hover:bg-primary/5"
                     >
-                      <div className="w-12 h-12 rounded-[1rem] bg-white flex items-center justify-center shadow-xl group-hover:scale-110 group-hover:rotate-6 transition-all border-2 border-white/20 shrink-0">
+                      <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-all shrink-0">
                         <link.icon className="w-5 h-5 text-primary" />
                       </div>
-                      <span className="text-xl font-bold text-white group-hover:text-primary transition-colors font-headline">
+                      <span className="text-lg font-bold text-foreground group-hover:text-primary transition-colors font-headline">
                         {link.title}
                       </span>
                     </Link>
@@ -140,7 +142,7 @@ export function Navbar() {
                   variant="ghost" 
                   size="icon" 
                   onClick={() => setIsOpen(false)}
-                  className="mt-8 w-12 h-12 rounded-full bg-white/5 hover:bg-red-500/20 text-white hover:text-red-500 transition-all"
+                  className="mt-6 w-10 h-10 rounded-full bg-muted hover:bg-destructive/10 hover:text-destructive transition-all"
                 >
                   <X className="w-5 h-5" />
                 </Button>
