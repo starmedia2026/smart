@@ -1,3 +1,4 @@
+
 'use client';
 
 import React, { useState, useEffect, useCallback } from 'react';
@@ -32,7 +33,7 @@ const systems: System[] = [
   { 
     id: 'financial', 
     title: "نظام شانان المالي", 
-    image: "/fin.jpg", 
+    image: "/shanana.jpeg", 
     icon: BarChart3,
     hint: "financial dashboard",
     features: [
@@ -46,7 +47,7 @@ const systems: System[] = [
   { 
     id: 'hr', 
     title: "نظام الموارد البشرية", 
-    image: "/hr.jpg", 
+    image: "/mawrd.jpeg", 
     icon: Users,
     hint: "hr management",
     features: [
@@ -60,7 +61,7 @@ const systems: System[] = [
   { 
     id: 'realestate', 
     title: "النظام العقاري", 
-    image: "/realestate.jpg", 
+    image: "/agar.jpeg", 
     icon: Building2,
     hint: "real estate software",
     features: [
@@ -74,7 +75,7 @@ const systems: System[] = [
   { 
     id: 'legal', 
     title: "نظام المحاماة", 
-    image: "/legal.jpg",
+    image: "/maham.png",
     icon: Gavel,
     hint: "legal platform",
     features: [
@@ -88,7 +89,7 @@ const systems: System[] = [
   { 
     id: 'manufacturing', 
     title: "نظام التصنيع", 
-    image: "/manufacturing.jpg", 
+    image: "/tsnea.png", 
     icon: Factory,
     hint: "factory automation",
     features: [
@@ -102,7 +103,7 @@ const systems: System[] = [
   { 
     id: 'fieldservice', 
     title: "نظام الخدمة الميدانية", 
-    image: "/field.jpg", 
+    image: "/maham.png", 
     icon: Truck,
     hint: "field operations",
     features: [
@@ -116,7 +117,7 @@ const systems: System[] = [
   { 
     id: 'cloud', 
     title: "نظام الحوسبة السحابية", 
-    image: "/cloud.jpg", 
+    image: "/shap.jpeg", 
     icon: Cloud,
     hint: "cloud infrastructure",
     features: [
@@ -130,7 +131,7 @@ const systems: System[] = [
   { 
     id: 'networking', 
     title: "نظام الشبكات", 
-    image: "/network.jpg", 
+    image: "/shbket.jpeg", 
     icon: Network,
     hint: "networking infrastructure",
     features: [
@@ -144,7 +145,7 @@ const systems: System[] = [
   { 
     id: 'cybersecurity', 
     title: "نظام الأمن السيبراني", 
-    image: "/cyber.jpg", 
+    image: "/amn.jpeg", 
     icon: ShieldAlert,
     hint: "cyber security",
     features: [
@@ -157,7 +158,7 @@ const systems: System[] = [
   },
 ];
 
-const AUTOPLAY_INTERVAL = 4000;
+const AUTOPLAY_INTERVAL = 5000;
 
 export function FieldServiceSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -166,12 +167,11 @@ export function FieldServiceSection() {
 
   const nextSlide = useCallback(() => {
     setIsChanging(true);
-    // انتقال لحظي وسريع جداً
     setTimeout(() => {
       setCurrentIndex((prev) => (prev + 1) % systems.length);
       setProgress(0);
       setIsChanging(false);
-    }, 100); 
+    }, 150); 
   }, []);
 
   useEffect(() => {
@@ -193,53 +193,49 @@ export function FieldServiceSection() {
   const currentSystem = systems[currentIndex];
 
   return (
-    <section className="py-24 bg-transparent relative overflow-hidden">
+    <section id="products" className="py-24 bg-transparent relative overflow-hidden scroll-mt-24">
       <div className="container mx-auto px-6">
         <div className="flex flex-col items-center">
           
-          <div className="w-full max-w-5xl bg-card/40 dark:bg-white/5 backdrop-blur-xl rounded-[3rem] shadow-2xl border border-border/40 dark:border-white/10 overflow-hidden flex flex-col md:flex-row-reverse">
+          <div className="w-full max-w-4xl bg-card/60 backdrop-blur-md rounded-[3rem] shadow-2xl border border-border/40 overflow-hidden flex flex-col">
             
-            <div className="flex-1 p-8 md:p-16 text-right relative z-10">
-              <div className={cn(
-                "transition-all duration-200 ease-out",
-                isChanging ? "opacity-0 translate-x-4 blur-sm" : "opacity-100 translate-x-0 blur-0"
-              )}>
-                <div className="inline-flex items-center px-4 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold mb-6">
-                  <span className="w-2 h-2 rounded-full bg-primary animate-pulse ml-2" />
-                  حلولنا الذكية
-                </div>
-                
-                <h2 className="text-3xl md:text-5xl font-bold font-headline mb-8 text-foreground dark:text-white">
-                  {currentSystem.title}
-                </h2>
-
-                <div className="space-y-4 mb-10">
-                  {currentSystem.features.map((feature, idx) => (
-                    <div key={idx} className="flex items-center justify-start gap-3 group">
-                      <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center shrink-0">
-                        <CheckCircle2 className="w-4 h-4 text-primary" />
-                      </div>
-                      <span className="text-base md:text-lg font-medium text-muted-foreground dark:text-white/80 flex-1">{feature}</span>
-                    </div>
-                  ))}
-                </div>
-
-                <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white px-10 py-6 text-base rounded-2xl shadow-xl transition-all active:scale-95 h-auto border-none">
-                  <a href="https://wa.me/966531813787" target="_blank" rel="noopener noreferrer">
-                    طلب عرض سعر
-                  </a>
-                </Button>
+            <div className={cn(
+              "p-8 md:p-12 text-right flex flex-col items-center md:items-start transition-all duration-200 ease-out",
+              isChanging ? "opacity-0 translate-x-4 blur-sm" : "opacity-100 translate-x-0 blur-0"
+            )}>
+              <div className="inline-flex items-center px-4 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold mb-6">
+                <span className="w-2 h-2 rounded-full bg-primary animate-pulse ml-2" />
+                حلولنا الذكية
               </div>
+              
+              <h2 className="text-3xl md:text-5xl font-bold font-headline mb-8 text-foreground">
+                {currentSystem.title}
+              </h2>
+
+              <div className="grid sm:grid-cols-1 gap-4 mb-8 w-full max-w-lg">
+                {currentSystem.features.map((feature, idx) => (
+                  <div key={idx} className="flex items-center justify-start gap-3 group">
+                    <CheckCircle2 className="w-5 h-5 text-primary shrink-0" />
+                    <span className="text-base md:text-lg font-medium text-muted-foreground flex-1">{feature}</span>
+                  </div>
+                ))}
+              </div>
+
+              <Button asChild size="sm" className="bg-primary hover:bg-primary/90 text-white px-8 py-3 text-sm rounded-xl shadow-lg transition-all active:scale-95 h-auto border-none mb-4 self-center md:self-start">
+                <a href="https://wa.me/966531813787" target="_blank" rel="noopener noreferrer">
+                  طلب عرض سعر
+                </a>
+              </Button>
             </div>
 
-            <div className="flex-1 relative min-h-[400px] md:min-h-full overflow-hidden">
+            <div className="relative w-full h-[400px] md:h-[500px] overflow-hidden">
               {systems.map((system, index) => {
                 const active = index === currentIndex;
                 return (
                   <div
                     key={system.id}
                     className={cn(
-                      "absolute inset-0 transition-all duration-300 ease-out",
+                      "absolute inset-0 transition-all duration-300 ease-in-out",
                       active
                         ? "opacity-100 scale-100 z-20"
                         : "opacity-0 scale-105 z-0"
@@ -255,51 +251,38 @@ export function FieldServiceSection() {
                   </div>
                 );
               })}
-              <div className="absolute inset-0 bg-gradient-to-l from-card/40 dark:from-black/40 to-transparent z-10" />
             </div>
 
-          </div>
-
-          <div className="w-full max-w-5xl mt-8">
-            <div className="glass-card dark:bg-white/5 rounded-[2rem] p-6 flex flex-col md:flex-row items-center justify-between gap-6 border-white/10">
-              <div className="flex items-center gap-6 flex-1 w-full">
-                <div className={cn(
-                  "w-14 h-14 bg-primary rounded-2xl flex items-center justify-center text-white shadow-lg transition-all duration-200",
-                  isChanging ? "scale-75 opacity-0" : "scale-100 opacity-100"
-                )}>
-                  <currentSystem.icon className="w-8 h-8" />
-                </div>
-                <div className="flex-1">
-                  <h4 className={cn(
-                    "text-xl font-bold text-foreground dark:text-white mb-2 transition-all duration-200",
-                    isChanging ? "opacity-0 -translate-y-1" : "opacity-100 translate-y-0"
-                  )}>
-                    {currentSystem.title}
-                  </h4>
-                  <div className="w-full h-1.5 bg-primary/10 rounded-full overflow-hidden">
-                    <div 
-                      className="h-full bg-primary transition-all duration-100 linear"
-                      style={{ width: `${progress}%` }}
-                    />
+            <div className="bg-card border-t border-border/40 p-6 md:p-8">
+               <div className="w-full border border-primary/20 rounded-[2rem] p-4 flex items-center justify-between bg-primary/5">
+                  <div className="w-10 h-10 flex items-center justify-center text-primary/40">
+                    <ChevronLeft className="w-6 h-6" />
                   </div>
-                </div>
-              </div>
-              <div className="flex gap-2">
-                {systems.map((_, idx) => (
-                  <button
-                    key={idx}
-                    onClick={() => {
-                      setCurrentIndex(idx);
-                      setProgress(0);
-                    }}
-                    className={cn(
-                      "w-3 h-3 rounded-full transition-all duration-300",
-                      idx === currentIndex ? "bg-primary w-8" : "bg-primary/20 hover:bg-primary/40"
-                    )}
-                  />
-                ))}
-              </div>
+
+                  <div className="flex flex-col items-center flex-1">
+                    <span className={cn(
+                      "text-lg md:text-xl font-bold text-primary font-headline mb-2 text-center transition-all duration-200",
+                      isChanging ? "opacity-0 scale-95" : "opacity-100 scale-100"
+                    )}>
+                      {currentSystem.title}
+                    </span>
+                    <div className="w-24 md:w-40 h-1 bg-primary/10 rounded-full overflow-hidden">
+                      <div 
+                        className="h-full bg-primary transition-all duration-100 linear"
+                        style={{ width: `${progress}%` }}
+                      />
+                    </div>
+                  </div>
+
+                  <div className={cn(
+                    "w-12 h-12 md:w-14 md:h-14 bg-primary rounded-2xl flex items-center justify-center text-white shadow-lg transition-all duration-200",
+                    isChanging ? "scale-75 opacity-0" : "scale-100 opacity-100"
+                  )}>
+                    <currentSystem.icon className="w-6 h-6 md:w-8 md:h-8" />
+                  </div>
+               </div>
             </div>
+
           </div>
         </div>
       </div>
