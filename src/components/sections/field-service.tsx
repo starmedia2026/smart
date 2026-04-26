@@ -167,7 +167,6 @@ export function FieldServiceSection() {
 
   const nextSlide = useCallback(() => {
     setIsChanging(true);
-    // تقليل وقت الانتقال ليكون أسرع
     setTimeout(() => {
       setCurrentIndex((prev) => (prev + 1) % systems.length);
       setProgress(0);
@@ -194,7 +193,7 @@ export function FieldServiceSection() {
   const currentSystem = systems[currentIndex];
 
   return (
-    <section className="py-24 bg-transparent relative overflow-hidden">
+    <section id="products" className="py-24 bg-transparent relative overflow-hidden scroll-mt-24">
       <div className="container mx-auto px-6">
         <div className="flex flex-col items-center">
           
