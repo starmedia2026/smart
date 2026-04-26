@@ -103,7 +103,7 @@ const systems: System[] = [
   { 
     id: 'fieldservice', 
     title: "نظام الخدمة الميدانية", 
-    image: "/maham.png", 
+    image: "/medan.png", 
     icon: Truck,
     hint: "field operations",
     features: [
