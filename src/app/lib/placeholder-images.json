@@ -44,6 +44,30 @@
       "imageHint": "partner logo"
     },
     {
+      "id": "partner-alw",
+      "description": "شعار الوادي الجديد",
+      "imageUrl": "/alw.jpg",
+      "imageHint": "partner logo"
+    },
+    {
+      "id": "partner-arbia",
+      "description": "شعار العربية",
+      "imageUrl": "/arbia.jpg",
+      "imageHint": "partner logo"
+    },
+    {
+      "id": "partner-nabih",
+      "description": "شعار نبيه",
+      "imageUrl": "/nabih.jpg",
+      "imageHint": "partner logo"
+    },
+    {
+      "id": "partner-nzah",
+      "description": "شعار نزاهة",
+      "imageUrl": "/nzah.jpg",
+      "imageHint": "partner logo"
+    },
+    {
       "id": "vat-logo",
       "description": "شعار ضريبة القيمة المضافة",
       "imageUrl": "/vat.jpg",
